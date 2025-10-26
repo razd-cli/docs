@@ -220,7 +220,7 @@ mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd
 
 If you're still having installation issues:
 
-1. Check the [troubleshooting guide](/troubleshooting/installation)
+1. Check the [FAQ](/troubleshooting/faq) for common solutions
 2. Search [existing issues](https://github.com/razd-cli/razd/issues)
 3. Create a [new issue](https://github.com/razd-cli/razd/issues/new) with:
    - Your operating system and version

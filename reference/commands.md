@@ -13,7 +13,7 @@ All Razd commands support these global options:
 
 ## Available Commands
 
-### [`razd up`](/reference/up)
+### `razd up`
 Set up a project (clone + install + setup)
 
 ```bash
@@ -22,7 +22,7 @@ razd up [URL] [OPTIONS]
 
 The primary command for project setup. Can clone a repository and set it up, or set up an existing local project.
 
-### [`razd install`](/reference/install)
+### `razd install`
 Install development tools via mise
 
 ```bash
@@ -31,7 +31,7 @@ razd install [OPTIONS]
 
 Runs `mise install` to install all tools defined in `.mise.toml` or `.tool-versions`.
 
-### [`razd setup`](/reference/setup)
+### `razd setup`
 Run project setup tasks
 
 ```bash
@@ -40,7 +40,7 @@ razd setup [OPTIONS]
 
 Runs the `setup` task from `Taskfile.yml` to initialize the project.
 
-### [`razd task`](/reference/task)
+### `razd task`
 Execute tasks from Taskfile.yml
 
 ```bash
@@ -49,7 +49,7 @@ razd task [TASK] [ARGS...]
 
 Execute specific tasks or run the default task if no task is specified.
 
-### [`razd init`](/reference/init)
+### `razd init`
 Initialize Razd configuration
 
 ```bash
@@ -205,9 +205,6 @@ RAZD_VERBOSE=1 razd up
 
 ## Next Steps
 
-- Learn about specific commands in detail:
-  - [`razd up`](/reference/up) - The main command
-  - [`razd task`](/reference/task) - Task execution
-  - [`razd init`](/reference/init) - Configuration setup
-- Explore [configuration options](/reference/razdfile)
-- See [real-world examples](/examples/)
+- Learn about specific commands in detail by exploring the examples above
+- See [getting started guide](/guide/getting-started) for practical usage
+- Check out the [FAQ](/troubleshooting/faq) for common questions

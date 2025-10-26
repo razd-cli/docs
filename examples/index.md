@@ -4,30 +4,30 @@ This section provides real-world examples of using Razd with different project t
 
 ## Project Types
 
-### [Node.js Projects](/examples/nodejs)
+### Node.js Projects
 Complete setup for Node.js applications with npm, pnpm, or yarn
 
-### [Python Projects](/examples/python)
+### Python Projects  
 Python applications with pip, poetry, or pipenv dependency management
 
-### [Rust Projects](/examples/rust)
+### Rust Projects
 Rust applications with Cargo build system and tool management
 
-### [Go Projects](/examples/go)
+### Go Projects
 Go applications with modules and development tools
 
-### [Full-Stack Applications](/examples/fullstack)
+### Full-Stack Applications
 Multi-language applications with frontend and backend components
 
 ## Common Use Cases
 
-### [Team Onboarding](/examples/team-onboarding)
+### Team Onboarding
 Set up new team members quickly and consistently
 
-### [CI/CD Integration](/examples/cicd)
+### CI/CD Integration
 Use Razd in continuous integration and deployment pipelines
 
-### [Monorepo Setup](/examples/monorepo)
+### Monorepo Setup
 Manage multiple projects in a single repository
 
 ## Quick Start Examples
@@ -308,6 +308,5 @@ tasks:
 ## Next Steps
 
 - Explore specific project type examples
-- Learn about [advanced configuration](/guide/configuration)
-- Check out [troubleshooting tips](/troubleshooting/common-issues)
-- Join the [community](/community/support) to share your own examples
+- Learn about [command reference](/reference/commands)
+- Check out the [FAQ](/troubleshooting/faq) for common questions

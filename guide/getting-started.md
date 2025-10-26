@@ -89,9 +89,8 @@ razd task
 Now that you have Razd working, explore these topics:
 
 - **[Installation Guide](/guide/installation)**: Learn about different installation methods
-- **[How it Works](/guide/how-it-works)**: Understand Razd's workflow in detail
+- **[What is Razd](/guide/what-is-razd)**: Understand Razd's philosophy and benefits
 - **[Command Reference](/reference/commands)**: Explore all available commands
-- **[Examples](/examples/)**: See real-world project setups
 
 ## Common Issues
 
@@ -104,16 +103,16 @@ Make sure Razd is properly installed and in your PATH. See the [installation gui
 Razd requires mise for tool management. Install it from [mise.jdx.dev](https://mise.jdx.dev/getting-started.html).
 
 ### Task fails to run
-Make sure your `Taskfile.yml` has a `setup` task defined. See our [configuration guide](/guide/configuration).
+Make sure your `Taskfile.yml` has a `setup` task defined. You can create a simple setup task to get started.
 
 ::: tip Need Help?
-If you're still having issues, check our [troubleshooting guide](/troubleshooting/common-issues) or reach out on [GitHub](https://github.com/razd-cli/razd/issues).
+If you're still having issues, check our [FAQ](/troubleshooting/faq) or reach out on [GitHub](https://github.com/razd-cli/razd/issues).
 :::
 
 ## What's Next?
 
 Ready to dive deeper? Here are some recommended next steps:
 
-1. **Customize Your Workflow**: Learn about [custom Razdfiles](/guide/custom-razdfiles)
-2. **Team Setup**: See how to use Razd for [team onboarding](/examples/team-onboarding)
-3. **Advanced Usage**: Explore [best practices](/guide/best-practices) and patterns
+1. **Explore Commands**: Learn about all [available commands](/reference/commands)
+2. **Team Setup**: Set up Razd for your development team
+3. **Advanced Usage**: Create custom project setups and automation

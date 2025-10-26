@@ -289,4 +289,4 @@ We welcome contributions:
 - **Code**: Submit pull requests
 - **Examples**: Share your project setups
 
-See our [contributing guide](/community/contributing) for details.
+Check the [GitHub repository](https://github.com/razd-cli/razd) for more details on contributing.
