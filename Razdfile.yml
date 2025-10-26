@@ -6,7 +6,7 @@ tasks:
     cmds:
       - echo "🚀 Setting up Node.js project..."
       - task: install
-      - pnpm run docs:dev
+      - task: dev
       
   install:
     desc: "Install development tools via mise"
