@@ -19,12 +19,56 @@ Quality documentation is essential for:
 - **Project Credibility**: Professional docs signal project maturity
 - **Community Growth**: Comprehensive guides enable community contributions
 
+## Why
+
+Comprehensive documentation is critical for razd-cli's success and adoption. Currently, users struggle to:
+
+1. **Discover the tool**: Without proper docs, users can't understand razd's value proposition
+2. **Get started quickly**: Installation and first-use friction prevents adoption
+3. **Use advanced features**: Missing command reference limits tool utilization
+4. **Troubleshoot issues**: Lack of FAQ/troubleshooting creates support burden
+5. **Contribute to the project**: Poor docs prevent community contributions
+
+The absence of quality documentation creates a barrier to growth and limits the tool's impact in the developer community.
+
 ## Goals
 
 1. **Accessible Learning Path**: From installation to advanced usage
 2. **Comprehensive Reference**: Complete command and configuration documentation
 3. **Modern UX**: Fast, searchable, mobile-friendly documentation site
 4. **Maintainable**: Documentation that stays current with code changes
+
+## What Changes
+
+This proposal introduces comprehensive user-facing documentation capability for razd-cli, including:
+
+### New Documentation Infrastructure
+- VitePress-based static site with responsive design
+- Automated build and deployment pipeline
+- Search functionality and navigation
+- Performance optimization (<2s load times)
+
+### Core Documentation Content
+- Landing page with clear value proposition
+- Multi-platform installation guides (Windows, macOS, Linux)
+- Getting started tutorial with real examples
+- Complete CLI command reference with examples
+- Configuration file documentation (Razdfile.yml, mise integration)
+
+### Advanced User Guides
+- Project setup patterns for popular tech stacks
+- Integration guides for development workflows
+- Best practices and common patterns
+- Comprehensive troubleshooting guide
+- Migration guide from manual setup processes
+
+### Community Resources
+- FAQ section with common questions
+- Support channels and contribution guidelines
+- Feedback mechanisms for documentation quality
+- Community-driven content improvement processes
+
+The changes focus entirely on user-facing documentation and do not modify the CLI tool itself or its core functionality.
 
 ## Scope
 
