@@ -1,0 +1,28 @@
+version: '3'
+
+tasks:
+  up:
+    desc: "Set up Node.js project"
+    cmds:
+      - echo "🚀 Setting up Node.js project..."
+      - task: install
+      - pnpm run docs:dev
+      
+  install:
+    desc: "Install development tools via mise"
+    cmds:
+      - echo "📦 Installing tools..."
+      - mise install
+      - pnpm install
+      
+  dev:
+    desc: "Start development server"
+    cmds:
+      - echo "🚀 Starting development..."
+      - pnpm run docs:dev
+      
+  build:
+    desc: "Build project"
+    cmds:
+      - echo "🔨 Building project..."
+      - pnpm run build
