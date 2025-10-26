@@ -7,7 +7,7 @@ hero:
   text: "The Modern Project Setup Tool"
   tagline: "Streamlined project setup with git, mise, and taskfile integration"
   image:
-    src: /logo.png
+    # src: /logo.png
     alt: Razd
   actions:
     - theme: brand
