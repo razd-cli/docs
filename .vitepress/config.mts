@@ -7,6 +7,13 @@ export default defineConfig({
     "Streamlined project setup with git, mise, and taskfile integration",
   base: "/docs/",
 
+  // Support for iconify-icon custom elements
+  vue: {
+    template: {
+      compilerOptions: { isCustomElement: (tag) => tag === "iconify-icon" },
+    },
+  },
+
   head: [
     ["link", { rel: "icon", href: "/docs/favicon.ico" }],
     ["meta", { name: "theme-color", content: "#646cff" }],

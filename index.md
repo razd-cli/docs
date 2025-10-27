@@ -4,8 +4,7 @@ layout: home
 
 hero:
   name: "Razd"
-  text: "The Modern Project Setup Tool"
-  tagline: "Streamlined project setup with git, mise, and taskfile integration"
+  tagline: "The Modern Project Setup Tool"
   image:
     # src: /logo.png
     alt: Razd
