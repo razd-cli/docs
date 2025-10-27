@@ -15,12 +15,30 @@ export default defineConfig({
   },
 
   head: [
+    // Favicon configurations
     ["link", { rel: "icon", href: "/docs/favicon.ico" }],
-    ["meta", { name: "theme-color", content: "#646cff" }],
+    [
+      "link",
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/docs/logo.png",
+      },
+    ],
+    [
+      "link",
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/docs/logo.png" },
+    ],
+
+    // Theme and meta configurations
+    ["meta", { name: "theme-color", content: "#cba6f7" }], // Catppuccin Mocha Mauve
     ["meta", { name: "og:type", content: "website" }],
     ["meta", { name: "og:locale", content: "en" }],
     ["meta", { name: "og:site_name", content: "Razd Documentation" }],
-    ["meta", { name: "og:image", content: "/docs/og-image.png" }],
+    ["meta", { name: "og:image", content: "/docs/logo.png" }],
+    ["meta", { name: "og:image:width", content: "1200" }],
+    ["meta", { name: "og:image:height", content: "630" }],
   ],
 
   themeConfig: {
