@@ -6,7 +6,7 @@ hero:
   name: "Razd"
   tagline: "The Modern Project Setup Tool"
   image:
-    src: https://razd-cli.github.io/docs/logo.png
+    src: /logo.png
     alt: Razd
   actions:
     - theme: brand

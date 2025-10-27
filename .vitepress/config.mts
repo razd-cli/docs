@@ -16,10 +16,7 @@ export default defineConfig({
 
   head: [
     // Favicon configurations
-    [
-      "link",
-      { rel: "icon", href: "https://razd-cli.github.io/docs/favicon.ico" },
-    ],
+    ["link", { rel: "icon", href: "/favicon.ico" }],
     [
       "link",
       {
@@ -46,7 +43,7 @@ export default defineConfig({
 
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: "https://razd-cli.github.io/docs/logo.png",
+    logo: "/logo.png",
 
     nav: [
       { text: "Guide", link: "/guide/getting-started" },
