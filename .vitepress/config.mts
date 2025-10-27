@@ -16,7 +16,10 @@ export default defineConfig({
 
   head: [
     // Favicon configurations
-    ["link", { rel: "icon", href: "/favicon.ico" }],
+    [
+      "link",
+      { rel: "icon", href: "https://razd-cli.github.io/docs/favicon.ico" },
+    ],
     [
       "link",
       {
