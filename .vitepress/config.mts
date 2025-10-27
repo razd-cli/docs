@@ -81,6 +81,10 @@ export default defineConfig({
   // Enable line numbers in code blocks
   markdown: {
     lineNumbers: true,
+    theme: {
+      light: "catppuccin-latte",
+      dark: "catppuccin-mocha",
+    },
   },
 
   // Performance optimization
