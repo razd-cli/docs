@@ -1,10 +1,9 @@
 version: '3'
 mise:
   tools:
-    node: '22'
+    node: '24'
     pnpm: latest
     task: latest
-    
 tasks:
   default:
     desc: Set up Node.js project
@@ -12,22 +11,23 @@ tasks:
     - echo "🚀 Setting up Node.js project..."
     - task: install
     - task: dev
-
   install:
     desc: Install development tools via mise
     cmds:
     - echo "📦 Installing tools..."
     - mise install
     - pnpm install
-
   dev:
     desc: Start development server
     cmds:
     - echo "🚀 Starting development..."
     - pnpm run docs:dev
-
   build:
     desc: Build project
     cmds:
     - echo "🔨 Building project..."
     - pnpm run build
+  cust:
+    desc: cust
+    cmds:
+    - echo "Cust..."
