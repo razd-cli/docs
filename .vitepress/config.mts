@@ -49,7 +49,7 @@ export default defineConfig({
     logo: "/logo.png",
 
     nav: [
-      { text: "Docs", link: "/docs/guide/" },
+      { text: "Docs", link: "/guide/" },
       {
         text: "v0.1.14",
         items: [
