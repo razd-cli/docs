@@ -49,10 +49,7 @@ export default defineConfig({
     logo: "/logo.png",
 
     nav: [
-      { text: "Guide", link: "/guide/" },
-      { text: "Getting Started", link: "/getting-started" },
-      { text: "Installation", link: "/installation/" },
-      { text: "FAQ", link: "/faq" },
+      { text: "Docs", link: "/docs/guide/" },
       {
         text: "v0.1.14",
         items: [
@@ -64,26 +61,17 @@ export default defineConfig({
       },
     ],
 
-    sidebar: {
-      "/guide/": [
-        {
-          text: "Guide",
-          items: [
-            { text: "What is Razd?", link: "/guide/" },
-            { text: "Installation", link: "/installation/" },
-            { text: "Getting Started", link: "/getting-started" },
-            { text: "FAQ", link: "/faq" },
-          ],
-        },
-      ],
-
-      "/installation/": [
-        {
-          text: "Installation",
-          items: [{ text: "Overview", link: "/installation/" }],
-        },
-      ],
-    },
+    sidebar: [
+      {
+        text: "Docs",
+        items: [
+          { text: "Getting Started", link: "/getting-started" },
+          { text: "Installation", link: "/installation/" },
+          { text: "Guide", link: "/guide/" },
+          { text: "FAQ", link: "/faq" },
+        ],
+      },
+    ],
 
     socialLinks: [{ icon: "github", link: "https://github.com/razd-cli/razd" }],
 
