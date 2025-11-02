@@ -1,118 +1,118 @@
-# Getting Started
+# Начало работы
 
-Welcome to Razd! This guide will help you get up and running with Razd in just a few minutes.
+Добро пожаловать в Razd! Это руководство поможет вам начать работу с Razd всего за несколько минут.
 
-## What You'll Learn
+## Что вы узнаете
 
-- How to install Razd on your system
-- Your first project setup with `razd up`
-- Understanding the Razd workflow
-- Next steps for customization
+- Как установить Razd в вашей системе
+- Ваша первая настройка проекта с `razd up`
+- Понимание рабочего процесса Razd
+- Следующие шаги для кастомизации
 
-## Prerequisites
+## Предварительные требования
 
-Before using Razd, make sure you have:
+Перед использованием Razd убедитесь, что у вас есть:
 
-- **git**: Required for repository operations
-- **mise**: Required for tool management ([installation guide](https://mise.jdx.dev/getting-started.html))
-- **task**: Will be installed automatically via mise if not present
+- **git**: Требуется для операций с репозиториями
+- **mise**: Требуется для управления инструментами ([руководство по установке](https://mise.jdx.dev/getting-started.html))
+- **task**: Будет установлен автоматически через mise, если отсутствует
 
 ::: tip
-Don't have mise installed? No problem! Check out our [installation guide](/installation/) for step-by-step instructions.
+Не установлен mise? Не проблема! Ознакомьтесь с нашим [руководством по установке](/installation/) для пошаговых инструкций.
 :::
 
-## Your First Project Setup
+## Ваша первая настройка проекта
 
-Let's set up your first project with Razd. We'll use a simple example repository:
+Давайте настроим ваш первый проект с Razd. Мы будем использовать простой пример репозитория:
 
-### Option 1: Clone and Setup a New Project
+### Вариант 1: Клонирование и настройка нового проекта
 
 ```bash
-# Clone and set up a project in one command
+# Клонирование и настройка проекта одной командой
 razd up https://github.com/razd-cli/example-nodejs-project
 ```
 
-This command will:
-1. Clone the repository to your current directory
-2. Install development tools via mise
-3. Run the project setup task
-4. Your project is ready!
+Эта команда:
+1. Клонирует репозиторий в вашу текущую директорию
+2. Установит инструменты разработки через mise
+3. Запустит задачу настройки проекта
+4. Ваш проект готов!
 
-### Option 2: Setup an Existing Local Project
+### Вариант 2: Настройка существующего локального проекта
 
-If you already have a project locally:
+Если у вас уже есть проект локально:
 
 ```bash
 cd my-existing-project
 razd up
 ```
 
-This will detect your project configuration and run the setup workflow.
+Это обнаружит конфигурацию вашего проекта и запустит процесс настройки.
 
-## What Just Happened?
+## Что только что произошло?
 
-When you ran `razd up`, here's what happened behind the scenes:
+Когда вы запустили `razd up`, вот что произошло за кулисами:
 
-1. **Detection**: Razd looked for configuration files:
-   - `.mise.toml` or `.tool-versions` (for tool management)
-   - `Taskfile.yml` (for project tasks)
+1. **Обнаружение**: Razd искал конфигурационные файлы:
+   - `.mise.toml` или `.tool-versions` (для управления инструментами)
+   - `Taskfile.yml` (для задач проекта)
 
-2. **Tool Installation**: If mise configuration was found:
+2. **Установка инструментов**: Если найдена конфигурация mise:
    ```bash
-   mise install  # Installs all tools defined in .mise.toml
+   mise install  # Устанавливает все инструменты, определённые в .mise.toml
    ```
 
-3. **Project Setup**: If a Taskfile was found:
+3. **Настройка проекта**: Если найден Taskfile:
    ```bash
-   task setup    # Runs the setup task defined in Taskfile.yml
+   task setup    # Запускает задачу setup, определённую в Taskfile.yml
    ```
 
-4. **Ready**: Your development environment is now ready!
+4. **Готово**: Ваше окружение разработки теперь готово!
 
-## Verifying the Setup
+## Проверка настройки
 
-To verify everything worked correctly:
+Чтобы убедиться, что всё работает правильно:
 
 ```bash
-# Check that razd is working
+# Проверьте, что razd работает
 razd --version
 
-# Check available tasks (if Taskfile.yml exists)
+# Проверьте доступные задачи (если существует Taskfile.yml)
 razd task --list
 
-# Run the default development task
+# Запустите задачу разработки по умолчанию
 razd task
 ```
 
-## Next Steps
+## Следующие шаги
 
-Now that you have Razd working, explore these topics:
+Теперь, когда Razd у вас работает, изучите эти темы:
 
-- **[Installation Guide](/installation/)**: Learn about different installation methods
-- **[What is Razd](/guide/)**: Understand Razd's philosophy and benefits
-- **[FAQ](/faq)**: Common questions and troubleshooting
+- **[Руководство по установке](/installation/)**: Узнайте о разных методах установки
+- **[Что такое Razd](/guide/)**: Поймите философию и преимущества Razd
+- **[FAQ](/faq)**: Распространённые вопросы и устранение неполадок
 
-## Common Issues
+## Распространённые проблемы
 
-Having trouble? Check these common solutions:
+Возникли трудности? Проверьте эти распространённые решения:
 
-### Command not found: razd
-Make sure Razd is properly installed and in your PATH. See the [installation guide](/installation/).
+### Команда не найдена: razd
+Убедитесь, что Razd правильно установлен и находится в вашем PATH. См. [руководство по установке](/installation/).
 
-### mise command not found
-Razd requires mise for tool management. Install it from [mise.jdx.dev](https://mise.jdx.dev/getting-started.html).
+### Команда mise не найдена
+Razd требует mise для управления инструментами. Установите его с [mise.jdx.dev](https://mise.jdx.dev/getting-started.html).
 
-### Task fails to run
-Make sure your `Taskfile.yml` has a `setup` task defined. You can create a simple setup task to get started.
+### Задача не запускается
+Убедитесь, что в вашем `Taskfile.yml` определена задача `setup`. Вы можете создать простую задачу setup для начала.
 
-::: tip Need Help?
-If you're still having issues, check our [FAQ](/faq) or reach out on [GitHub](https://github.com/razd-cli/razd/issues).
+::: tip Нужна помощь?
+Если у вас всё ещё есть проблемы, проверьте наш [FAQ](/faq) или обратитесь на [GitHub](https://github.com/razd-cli/razd/issues).
 :::
 
-## What's Next?
+## Что дальше?
 
-Ready to dive deeper? Here are some recommended next steps:
+Готовы погрузиться глубже? Вот несколько рекомендуемых следующих шагов:
 
-1. **Explore FAQ**: Learn about [common usage patterns](/faq#usage-questions)
-2. **Team Setup**: Set up Razd for your development team
-3. **Advanced Usage**: Create custom project setups and automation
+1. **Изучите FAQ**: Узнайте о [распространённых паттернах использования](/faq#usage-questions)
+2. **Настройка команды**: Настройте Razd для вашей команды разработки
+3. **Продвинутое использование**: Создавайте пользовательские настройки проектов и автоматизацию

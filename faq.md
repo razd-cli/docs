@@ -1,185 +1,185 @@
-# Frequently Asked Questions
+# Часто задаваемые вопросы
 
-## General Questions
+## Общие вопросы
 
-### What is Razd?
+### Что такое Razd?
 
-Razd is a command-line tool that automates project setup by integrating git, mise, and taskfile. Instead of running multiple commands to clone, install tools, and set up a project, you can do it all with a single `razd up` command.
+Razd — это инструмент командной строки, который автоматизирует настройку проекта, интегрируя git, mise и taskfile. Вместо выполнения множества команд для клонирования, установки инструментов и настройки проекта, вы можете сделать всё это одной командой `razd up`.
 
-### How is Razd different from other setup tools?
+### Чем Razd отличается от других инструментов настройки?
 
-Razd is unique because it:
-- **Integrates existing tools** rather than replacing them
-- **Requires zero configuration** for most projects
-- **Works cross-platform** with consistent behavior
-- **Focuses on developer experience** with clear error messages
-- **Respects project autonomy** - projects control their own setup
+Razd уникален тем, что:
+- **Интегрирует существующие инструменты**, а не заменяет их
+- **Требует нулевой конфигурации** для большинства проектов
+- **Работает кроссплатформенно** с согласованным поведением
+- **Фокусируется на опыте разработчика** с понятными сообщениями об ошибках
+- **Уважает автономию проекта** - проекты контролируют свою собственную настройку
 
-### Do I need to modify my existing projects to use Razd?
+### Нужно ли модифицировать существующие проекты для использования Razd?
 
-No! Razd works with existing mise and taskfile configurations. If your project already uses `.mise.toml` and `Taskfile.yml`, Razd will work immediately with no changes required.
+Нет! Razd работает с существующими конфигурациями mise и taskfile. Если ваш проект уже использует `.mise.toml` и `Taskfile.yml`, Razd будет работать сразу без каких-либо изменений.
 
-## Installation and Setup
+## Установка и настройка
 
-### Which platforms does Razd support?
+### Какие платформы поддерживает Razd?
 
-Razd works on:
+Razd работает на:
 - **Windows** (PowerShell, Command Prompt, WSL)
-- **macOS** (Intel and Apple Silicon)
-- **Linux** (all major distributions)
+- **macOS** (Intel и Apple Silicon)
+- **Linux** (все основные дистрибутивы)
 
-### Do I need to install mise and task separately?
+### Нужно ли устанавливать mise и task отдельно?
 
-You need mise installed, but task is optional. If task isn't available, Razd will install it automatically via mise when needed.
+Вам нужен установленный mise, но task опционален. Если task недоступен, Razd установит его автоматически через mise при необходимости.
 
-### Can I use Razd without mise?
+### Можно ли использовать Razd без mise?
 
-Currently, mise is required for tool management. If your project doesn't use mise, Razd will still work but won't install any tools automatically.
+В настоящее время mise требуется для управления инструментами. Если ваш проект не использует mise, Razd всё равно будет работать, но не будет автоматически устанавливать инструменты.
 
-### How do I update Razd?
+### Как обновить Razd?
 
-With mise:
+С mise:
 ```bash
 mise use -g razd@latest
 ```
 
-For manual installations, download the latest binary from [GitHub releases](https://github.com/razd-cli/razd/releases).
+Для ручных установок скачайте последний исполняемый файл с [релизов GitHub](https://github.com/razd-cli/razd/releases).
 
-## Usage Questions
+## Вопросы по использованию
 
-### What happens when I run `razd up`?
+### Что происходит, когда я запускаю `razd up`?
 
-`razd up` performs these steps:
-1. **Clone**: If a URL is provided, clone the repository
-2. **Detect**: Look for `.mise.toml` and `Taskfile.yml`
-3. **Install**: Run `mise install` if configuration is found
-4. **Setup**: Run `task setup` if Taskfile is found
-5. **Report**: Show what was accomplished
+`razd up` выполняет эти шаги:
+1. **Клонирование**: Если указан URL, клонирует репозиторий
+2. **Обнаружение**: Ищет `.mise.toml` и `Taskfile.yml`
+3. **Установка**: Запускает `mise install`, если найдена конфигурация
+4. **Настройка**: Запускает `task setup`, если найден Taskfile
+5. **Отчёт**: Показывает, что было выполнено
 
-### Can I use `razd up` on an existing project?
+### Можно ли использовать `razd up` на существующем проекте?
 
-Yes! Running `razd up` in an existing project directory will:
-- Skip the clone step
-- Install tools via mise (if configured)
-- Run setup tasks (if available)
+Да! Запуск `razd up` в существующей директории проекта:
+- Пропустит шаг клонирования
+- Установит инструменты через mise (если настроено)
+- Запустит задачи настройки (если доступно)
 
-### What if my project doesn't have a `setup` task?
+### Что если в моём проекте нет задачи `setup`?
 
-Razd will skip the setup step and let you know. You can create a `setup` task in your `Taskfile.yml` to define what should happen during project initialization.
+Razd пропустит шаг настройки и сообщит вам об этом. Вы можете создать задачу `setup` в вашем `Taskfile.yml`, чтобы определить, что должно происходить при инициализации проекта.
 
-### Can I customize which task runs during setup?
+### Могу ли я настроить, какая задача запускается при настройке?
 
-Currently, Razd runs the `setup` task by default. Custom task configuration is planned for future releases. For now, you can:
-- Use `razd install` + `razd task your-custom-task`
-- Create a `setup` task that calls your custom tasks
+В настоящее время Razd запускает задачу `setup` по умолчанию. Настройка пользовательских задач планируется для будущих релизов. Пока вы можете:
+- Использовать `razd install` + `razd task your-custom-task`
+- Создать задачу `setup`, которая вызывает ваши пользовательские задачи
 
-### How do I see what tasks are available?
+### Как посмотреть доступные задачи?
 
 ```bash
 razd task --list
-# or
+# или
 task --list
 ```
 
-## Configuration and Customization
+## Конфигурация и кастомизация
 
-### What is a Razdfile.yml?
+### Что такое Razdfile.yml?
 
-A Razdfile.yml is an optional configuration file that allows you to customize Razd's behavior. You can create one with:
+Razdfile.yml — это опциональный конфигурационный файл, который позволяет настроить поведение Razd. Вы можете создать его с помощью:
 ```bash
 razd init
 ```
 
-### Can I configure Razd globally?
+### Можно ли настроить Razd глобально?
 
-Yes, you can create a global configuration file at `~/.config/razd/config.yml` or use environment variables like `RAZD_VERBOSE=1`.
+Да, вы можете создать глобальный конфигурационный файл в `~/.config/razd/config.yml` или использовать переменные окружения, такие как `RAZD_VERBOSE=1`.
 
-### How do I set up Razd for my team?
+### Как настроить Razd для моей команды?
 
-1. Ensure your project has `.mise.toml` with required tools
-2. Create a `Taskfile.yml` with a `setup` task
-3. Team members just run `razd up` to get started
-4. Consider adding a `Razdfile.yml` for project-specific configuration
+1. Убедитесь, что в вашем проекте есть `.mise.toml` с необходимыми инструментами
+2. Создайте `Taskfile.yml` с задачей `setup`
+3. Члены команды просто запускают `razd up` для начала
+4. Рассмотрите добавление `Razdfile.yml` для специфичной для проекта конфигурации
 
-### Can I use Razd with monorepos?
+### Можно ли использовать Razd с монорепозиториями?
 
-Yes! Razd works well with monorepos. You can:
-- Have a top-level setup for shared tools
-- Use individual Taskfiles in each package
-- Run `razd up` from any directory with configuration
+Да! Razd отлично работает с монорепозиториями. Вы можете:
+- Иметь настройку верхнего уровня для общих инструментов
+- Использовать индивидуальные Taskfile в каждом пакете
+- Запускать `razd up` из любой директории с конфигурацией
 
-## Troubleshooting
+## Устранение неполадок
 
 ### "Command not found: razd"
 
-This means Razd isn't in your PATH. Solutions:
-1. Reinstall using the [installation guide](/installation/)
-2. Check that the binary is executable (`chmod +x razd` on Unix)
-3. Verify your PATH includes the installation directory
+Это означает, что Razd не в вашем PATH. Решения:
+1. Переустановите, используя [руководство по установке](/installation/)
+2. Проверьте, что исполняемый файл исполняемый (`chmod +x razd` на Unix)
+3. Убедитесь, что ваш PATH включает директорию установки
 
 ### "mise command not found"
 
-Razd requires mise for tool management:
+Razd требует mise для управления инструментами:
 ```bash
-# Install mise
+# Установите mise
 curl https://mise.jdx.dev/install.sh | sh
-# or
+# или
 brew install mise
 ```
 
-### Setup fails with "Task 'setup' not found"
+### Настройка не удаётся с "Task 'setup' not found"
 
-Your `Taskfile.yml` doesn't have a `setup` task. You can:
-1. Add a `setup` task to your Taskfile
-2. Use `razd install` to just install tools
-3. Run tasks manually with `razd task task-name`
+Ваш `Taskfile.yml` не имеет задачи `setup`. Вы можете:
+1. Добавить задачу `setup` в ваш Taskfile
+2. Использовать `razd install` для установки только инструментов
+3. Запускать задачи вручную с `razd task task-name`
 
-### Tools aren't being installed
+### Инструменты не устанавливаются
 
-Check that:
-1. You have a `.mise.toml` or `.tool-versions` file
-2. The file is properly formatted
-3. You have network access for tool downloads
-4. mise is working: `mise doctor`
+Проверьте, что:
+1. У вас есть файл `.mise.toml` или `.tool-versions`
+2. Файл правильно отформатирован
+3. У вас есть сетевой доступ для скачивания инструментов
+4. mise работает: `mise doctor`
 
-### Git clone fails
+### Git clone не удаётся
 
-Common causes:
-1. **Repository doesn't exist**: Check the URL
-2. **No access**: Verify your credentials for private repos
-3. **Network issues**: Check your internet connection
-4. **SSH keys**: For SSH URLs, ensure your keys are set up
+Распространённые причины:
+1. **Репозиторий не существует**: Проверьте URL
+2. **Нет доступа**: Проверьте ваши учётные данные для приватных репозиториев
+3. **Проблемы с сетью**: Проверьте ваше интернет-соединение
+4. **SSH ключи**: Для SSH URL убедитесь, что ваши ключи настроены
 
-### Tasks fail to run
+### Задачи не запускаются
 
-Debugging steps:
-1. Run with verbose output: `razd --verbose task task-name`
-2. Check task definition in `Taskfile.yml`
-3. Verify all dependencies are installed
-4. Try running the task directly: `task task-name`
+Шаги отладки:
+1. Запустите с подробным выводом: `razd --verbose task task-name`
+2. Проверьте определение задачи в `Taskfile.yml`
+3. Проверьте, что все зависимости установлены
+4. Попробуйте запустить задачу напрямую: `task task-name`
 
-## Project Setup
+## Настройка проекта
 
-### How do I create a new project with Razd?
+### Как создать новый проект с Razd?
 
-1. Create a new directory: `mkdir my-project && cd my-project`
-2. Initialize configuration: `razd init`
-3. Edit the generated files to match your needs
-4. Add your project files
-5. Test with `razd up`
+1. Создайте новую директорию: `mkdir my-project && cd my-project`
+2. Инициализируйте конфигурацию: `razd init`
+3. Отредактируйте сгенерированные файлы под ваши нужды
+4. Добавьте файлы вашего проекта
+5. Протестируйте с `razd up`
 
-### What should go in my `setup` task?
+### Что должно быть в моей задаче `setup`?
 
-Common setup tasks include:
+Распространённые задачи настройки включают:
 ```yaml
 setup:
   deps: [install-deps, setup-env, setup-db]
   cmds:
-    - echo "Project setup complete!"
+    - echo "Настройка проекта завершена!"
 
 install-deps:
   cmds:
-    - npm install # or pip install, etc.
+    - npm install # или pip install и т.д.
 
 setup-env:
   cmds:
@@ -191,102 +191,102 @@ setup-db:
     - task db:migrate
 ```
 
-### How do I handle sensitive configuration?
+### Как обрабатывать чувствительную конфигурацию?
 
-Best practices:
-1. Use `.env.example` files with placeholder values
-2. Copy to `.env` in your setup task
-3. Never commit sensitive values to git
-4. Use mise for managing API keys when possible
+Лучшие практики:
+1. Используйте файлы `.env.example` с значениями-заполнителями
+2. Копируйте в `.env` в вашей задаче setup
+3. Никогда не коммитьте чувствительные значения в git
+4. Используйте mise для управления API ключами, когда возможно
 
-## Integration Questions
+## Вопросы интеграции
 
-### Can I use Razd in CI/CD?
+### Можно ли использовать Razd в CI/CD?
 
-Absolutely! Razd is perfect for CI/CD:
+Абсолютно! Razd идеален для CI/CD:
 ```yaml
-# GitHub Actions example
+# Пример GitHub Actions
 - name: Setup project
   run: razd up
 ```
 
-Benefits:
-- Consistent environment setup
-- Faster than manual steps
-- Easy to maintain
+Преимущества:
+- Согласованная настройка окружения
+- Быстрее, чем ручные шаги
+- Легко поддерживать
 
-### Does Razd work with Docker?
+### Работает ли Razd с Docker?
 
-Yes! You can:
-- Use Razd to set up projects that use Docker
-- Run Razd inside Docker containers
-- Include Docker tools in your `.mise.toml`
+Да! Вы можете:
+- Использовать Razd для настройки проектов, использующих Docker
+- Запускать Razd внутри Docker контейнеров
+- Включать Docker инструменты в ваш `.mise.toml`
 
-### Can I use Razd with existing build tools?
+### Можно ли использовать Razd с существующими инструментами сборки?
 
-Razd complements existing tools:
-- **npm/yarn**: Works great with Node.js projects
-- **cargo**: Perfect for Rust projects
-- **pip/poetry**: Excellent for Python projects
-- **make**: Can be used alongside or instead of task
+Razd дополняет существующие инструменты:
+- **npm/yarn**: Отлично работает с проектами Node.js
+- **cargo**: Идеально для проектов Rust
+- **pip/poetry**: Превосходно для проектов Python
+- **make**: Может использоваться вместе с или вместо task
 
-### How does Razd work with IDEs?
+### Как Razd работает с IDE?
 
-Razd sets up your project environment, which IDEs can then use:
-- VS Code: Will detect tool versions automatically
-- IntelliJ: Can use mise-managed tools
-- Vim/Neovim: Works with any LSP configuration
+Razd настраивает окружение вашего проекта, которое затем могут использовать IDE:
+- VS Code: Автоматически обнаружит версии инструментов
+- IntelliJ: Может использовать инструменты, управляемые mise
+- Vim/Neovim: Работает с любой конфигурацией LSP
 
-## Performance and Best Practices
+## Производительность и лучшие практики
 
-### How fast is Razd?
+### Насколько быстр Razd?
 
-Razd is designed for speed:
-- Written in Rust for performance
-- Parallel tool installation where possible
-- Smart caching reduces repeat operations
-- Typical setup: 30 seconds to 2 minutes depending on project size
+Razd разработан для скорости:
+- Написан на Rust для производительности
+- Параллельная установка инструментов, где возможно
+- Умное кэширование сокращает повторные операции
+- Типичная настройка: от 30 секунд до 2 минут в зависимости от размера проекта
 
-### Best practices for team adoption?
+### Лучшие практики для адаптации команды?
 
-1. **Start simple**: Begin with basic `.mise.toml` and `Taskfile.yml`
-2. **Document setup**: Include Razd instructions in your README
-3. **Provide examples**: Show common commands and workflows
-4. **Test regularly**: Verify setup works on clean environments
-5. **Be consistent**: Use similar patterns across projects
+1. **Начните просто**: Начните с базовых `.mise.toml` и `Taskfile.yml`
+2. **Документируйте настройку**: Включите инструкции Razd в ваш README
+3. **Предоставьте примеры**: Покажите распространённые команды и процессы
+4. **Регулярно тестируйте**: Проверяйте, что настройка работает в чистых окружениях
+5. **Будьте последовательны**: Используйте похожие паттерны в проектах
 
-### How do I optimize setup performance?
+### Как оптимизировать производительность настройки?
 
-Tips for faster setup:
-1. **Use mise caching**: Tools are cached after first install
-2. **Parallel tasks**: Use task dependencies smartly
-3. **Minimal installs**: Only include necessary tools in `.mise.toml`
-4. **Local mirrors**: Use local package mirrors when available
+Советы для более быстрой настройки:
+1. **Используйте кэширование mise**: Инструменты кэшируются после первой установки
+2. **Параллельные задачи**: Используйте зависимости задач умно
+3. **Минимальные установки**: Включайте только необходимые инструменты в `.mise.toml`
+4. **Локальные зеркала**: Используйте локальные зеркала пакетов, когда доступно
 
-## Getting Help
+## Получение помощи
 
-### Where can I get support?
+### Где можно получить поддержку?
 
-- **Documentation**: This site covers most common scenarios
-- **GitHub Issues**: [Report bugs or request features](https://github.com/razd-cli/razd/issues)
-- **GitHub Discussions**: [Community Q&A](https://github.com/razd-cli/razd/discussions)
+- **Документация**: Этот сайт охватывает большинство распространённых сценариев
+- **GitHub Issues**: [Сообщить об ошибках или запросить функции](https://github.com/razd-cli/razd/issues)
+- **GitHub Discussions**: [Вопросы и ответы сообщества](https://github.com/razd-cli/razd/discussions)
 
-### How do I report a bug?
+### Как сообщить об ошибке?
 
-Please include:
-1. Your operating system and version
-2. Razd version (`razd --version`)
-3. Complete error message
-4. Steps to reproduce
-5. Expected vs actual behavior
+Пожалуйста, включите:
+1. Вашу операционную систему и версию
+2. Версию Razd (`razd --version`)
+3. Полное сообщение об ошибке
+4. Шаги для воспроизведения
+5. Ожидаемое vs фактическое поведение
 
-### How can I contribute?
+### Как я могу внести вклад?
 
-We welcome contributions:
-- **Documentation**: Improve these docs
-- **Bug reports**: Help us find and fix issues
-- **Feature requests**: Suggest improvements
-- **Code**: Submit pull requests
-- **Examples**: Share your project setups
+Мы приветствуем вклады:
+- **Документация**: Улучшите эту документацию
+- **Сообщения об ошибках**: Помогите нам найти и исправить проблемы
+- **Запросы функций**: Предложите улучшения
+- **Код**: Отправьте pull request
+- **Примеры**: Поделитесь настройками ваших проектов
 
-Check the [GitHub repository](https://github.com/razd-cli/razd) for more details on contributing.
+Проверьте [репозиторий GitHub](https://github.com/razd-cli/razd) для более подробной информации о вкладе.

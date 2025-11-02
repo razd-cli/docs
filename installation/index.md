@@ -1,267 +1,267 @@
-# Installation
+# Установка
 
-This guide covers multiple ways to install Razd on your system. Choose the method that works best for your setup.
+Это руководство охватывает несколько способов установки Razd в вашей системе. Выберите метод, который лучше всего подходит для вашей конфигурации.
 
-## Quick Install (Recommended)
+## Быстрая установка (Рекомендуется)
 
-### Using mise
+### Используя mise
 
-The easiest way to install Razd is through mise, which also manages the tool dependencies:
+Самый простой способ установить Razd — через mise, который также управляет зависимостями инструмента:
 
 ```bash
-# Install the Razd plugin
+# Установите плагин Razd
 mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd
 
-# Install and use the latest version globally
+# Установите и используйте последнюю версию глобально
 mise use -g razd@latest
 
-# Verify installation
+# Проверьте установку
 razd --version
 ```
 
-### Using a specific version
+### Использование определённой версии
 
 ```bash
-# Install a specific version
+# Установите определённую версию
 mise use -g razd@0.1.14
 
-# Or install locally for a project
+# Или установите локально для проекта
 mise use razd@0.1.14
 ```
 
-## Alternative Installation Methods
+## Альтернативные методы установки
 
-### Download Binary (All Platforms)
+### Скачать исполняемый файл (Все платформы)
 
-Download the latest binary for your platform from the [releases page](https://github.com/razd-cli/razd/releases):
+Скачайте последний исполняемый файл для вашей платформы со [страницы релизов](https://github.com/razd-cli/razd/releases):
 
 #### Windows
 
 ```powershell
-# Download and extract (PowerShell)
+# Скачайте и распакуйте (PowerShell)
 Invoke-WebRequest -Uri "https://github.com/razd-cli/razd/releases/latest/download/razd-windows.zip" -OutFile "razd.zip"
 Expand-Archive -Path "razd.zip" -DestinationPath "C:\tools\razd"
 
-# Add to PATH
+# Добавьте в PATH
 $env:PATH += ";C:\tools\razd"
 ```
 
 #### macOS
 
 ```bash
-# Download and install
+# Скачайте и установите
 curl -L "https://github.com/razd-cli/razd/releases/latest/download/razd-macos.tar.gz" | tar xz
 sudo mv razd /usr/local/bin/
 
-# Verify installation
+# Проверьте установку
 razd --version
 ```
 
 #### Linux
 
 ```bash
-# Download and install
+# Скачайте и установите
 curl -L "https://github.com/razd-cli/razd/releases/latest/download/razd-linux.tar.gz" | tar xz
 sudo mv razd /usr/local/bin/
 
-# Or install to user directory
+# Или установите в пользовательскую директорию
 mkdir -p ~/.local/bin
 mv razd ~/.local/bin/
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-### Build from Source
+### Сборка из исходников
 
-If you prefer to build from source or need the latest development version:
+Если вы предпочитаете собрать из исходников или вам нужна последняя версия разработки:
 
-#### Prerequisites
+#### Предварительные требования
 
-- [Rust](https://rustup.rs/) (latest stable version)
+- [Rust](https://rustup.rs/) (последняя стабильная версия)
 - [git](https://git-scm.com/)
 
-#### Build and Install
+#### Сборка и установка
 
 ```bash
-# Clone the repository
+# Клонируйте репозиторий
 git clone https://github.com/razd-cli/razd.git
 cd razd
 
-# Build and install
+# Соберите и установите
 cargo install --path .
 
-# Verify installation
+# Проверьте установку
 razd --version
 ```
 
-#### Development Build
+#### Сборка для разработки
 
 ```bash
-# Clone and build for development
+# Клонируйте и соберите для разработки
 git clone https://github.com/razd-cli/razd.git
 cd razd
 
-# Build in debug mode
+# Соберите в режиме отладки
 cargo build
 
-# Run directly
+# Запустите напрямую
 ./target/debug/razd --version
 
-# Or install for development
+# Или установите для разработки
 cargo install --path . --debug
 ```
 
-## Verify Installation
+## Проверка установки
 
-After installation, verify that Razd is working correctly:
+После установки убедитесь, что Razd работает корректно:
 
 ```bash
-# Check version
+# Проверьте версию
 razd --version
 
-# Check help
+# Проверьте справку
 razd --help
 
-# Test with a simple command
+# Протестируйте с простой командой
 razd init --help
 ```
 
-You should see output similar to:
+Вы должны увидеть вывод примерно такой:
 ```
 razd 0.1.14
 ```
 
-## Installing Dependencies
+## Установка зависимостей
 
-Razd works best with these companion tools:
+Razd лучше всего работает с этими сопутствующими инструментами:
 
-### mise (Required)
+### mise (Требуется)
 
-Razd uses mise for tool version management:
+Razd использует mise для управления версиями инструментов:
 
 ```bash
-# Install mise (if not already installed)
+# Установите mise (если ещё не установлен)
 curl https://mise.jdx.dev/install.sh | sh
 
-# Or on macOS with Homebrew
+# Или на macOS с Homebrew
 brew install mise
 
-# On Windows with Scoop
+# На Windows со Scoop
 scoop install mise
 ```
 
-### task (Optional, auto-installed)
+### task (Опционально, устанавливается автоматически)
 
-Task is used for running project tasks. If not present, Razd will install it via mise:
+Task используется для запуска задач проекта. Если он отсутствует, Razd установит его через mise:
 
 ```bash
-# Manual installation (optional)
+# Ручная установка (опционально)
 mise use -g task@latest
 ```
 
-## Platform-Specific Notes
+## Примечания для конкретных платформ
 
 ### Windows
 
-- **PowerShell**: Razd works with both PowerShell and Command Prompt
-- **WSL**: Razd works great in Windows Subsystem for Linux
-- **Path Setup**: Make sure the installation directory is in your PATH
+- **PowerShell**: Razd работает как с PowerShell, так и с Command Prompt
+- **WSL**: Razd отлично работает в Windows Subsystem for Linux
+- **Настройка Path**: Убедитесь, что директория установки находится в вашем PATH
 
 ### macOS
 
-- **Apple Silicon**: Native ARM64 binaries available
-- **Intel Macs**: x64 binaries work on all Intel Macs
-- **Homebrew**: Support coming soon
+- **Apple Silicon**: Доступны нативные ARM64 бинарники
+- **Intel Macs**: x64 бинарники работают на всех Intel Mac
+- **Homebrew**: Поддержка скоро появится
 
 ### Linux
 
-- **Distributions**: Works on all major Linux distributions
-- **Package Managers**: Native packages coming for popular distros
-- **AppImage**: Portable AppImage available for easy installation
+- **Дистрибутивы**: Работает на всех основных дистрибутивах Linux
+- **Менеджеры пакетов**: Нативные пакеты появятся для популярных дистрибутивов
+- **AppImage**: Доступен портативный AppImage для простой установки
 
-## Troubleshooting Installation
+## Устранение проблем при установке
 
-### Common Issues
+### Распространённые проблемы
 
 #### "Command not found: razd"
 
-The binary is not in your PATH. Solutions:
+Исполняемый файл не в вашем PATH. Решения:
 
-1. **Check installation location**:
+1. **Проверьте местоположение установки**:
    ```bash
    which razd  # Unix/Linux/macOS
    where razd  # Windows
    ```
 
-2. **Add to PATH** (adjust path as needed):
+2. **Добавьте в PATH** (настройте путь по необходимости):
    ```bash
-   # Add to ~/.bashrc or ~/.zshrc
+   # Добавьте в ~/.bashrc или ~/.zshrc
    export PATH="$HOME/.local/bin:$PATH"
    
-   # Or for mise installation
+   # Или для установки mise
    mise env >> ~/.bashrc
    ```
 
-#### "Permission denied" on Unix systems
+#### "Permission denied" на Unix системах
 
-Make the binary executable:
+Сделайте исполняемый файл исполняемым:
 ```bash
 chmod +x /path/to/razd
 ```
 
-#### mise plugin installation fails
+#### Установка mise plugin не удалась
 
-Make sure you have the latest mise version:
+Убедитесь, что у вас последняя версия mise:
 ```bash
 mise self-update
 mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd
 ```
 
-### Getting Help
+### Получение помощи
 
-If you're still having installation issues:
+Если у вас всё ещё проблемы с установкой:
 
-1. Check the [FAQ](/faq) for common solutions
-2. Search [existing issues](https://github.com/razd-cli/razd/issues)
-3. Create a [new issue](https://github.com/razd-cli/razd/issues/new) with:
-   - Your operating system and version
-   - Installation method attempted
-   - Full error messages
+1. Проверьте [FAQ](/faq) для распространённых решений
+2. Поищите [существующие проблемы](https://github.com/razd-cli/razd/issues)
+3. Создайте [новую проблему](https://github.com/razd-cli/razd/issues/new) с:
+   - Вашей операционной системой и версией
+   - Попыткой метода установки
+   - Полными сообщениями об ошибках
 
-## Upgrading Razd
+## Обновление Razd
 
-### With mise
+### С mise
 
 ```bash
-# Update to latest version
+# Обновите до последней версии
 mise use -g razd@latest
 
-# Or update all tools
+# Или обновите все инструменты
 mise upgrade
 ```
 
-### Manual Upgrade
+### Ручное обновление
 
-1. Download the latest release
-2. Replace the existing binary
-3. Verify with `razd --version`
+1. Скачайте последний релиз
+2. Замените существующий исполняемый файл
+3. Проверьте с помощью `razd --version`
 
-## Uninstalling
+## Удаление
 
-### mise Installation
+### Установка mise
 
 ```bash
-# Remove from global config
+# Удалите из глобальной конфигурации
 mise unuse -g razd
 
-# Remove plugin (optional)
+# Удалите плагин (опционально)
 mise plugin uninstall razd
 ```
 
-### Manual Installation
+### Ручная установка
 
-Simply remove the binary from your system:
+Просто удалите исполняемый файл из вашей системы:
 ```bash
-# Find and remove
-which razd  # Note the location
+# Найдите и удалите
+which razd  # Заметьте местоположение
 rm /path/to/razd
 ```

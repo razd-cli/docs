@@ -1,161 +1,161 @@
-# What is Razd?
+# Что такое Razd?
 
-Razd (Russian: разд, from "раздуплиться" - to wake up and get yourself together) is a Rust CLI tool that dramatically simplifies project setup across popular technology stacks.
+Razd (от русского "раздуплиться" - проснуться и взять себя в руки) — это CLI инструмент на Rust, который значительно упрощает настройку проектов для популярных технологических стеков.
 
-## The Problem
+## Проблема
 
-Setting up a new development project typically involves multiple manual steps:
+Настройка нового проекта разработки обычно включает множество ручных шагов:
 
 ```bash
-# The traditional way
+# Традиционный подход
 git clone https://github.com/company/awesome-project.git
 cd awesome-project
-mise install          # Install tools (Node.js, Python, etc.)
-npm install           # Or pip install, bundle install, etc.
-cp .env.example .env  # Setup configuration
-task setup           # Run project-specific setup
-task db:migrate      # Database setup
-# ... more setup steps
+mise install          # Установка инструментов (Node.js, Python и т.д.)
+npm install           # Или pip install, bundle install и т.д.
+cp .env.example .env  # Настройка конфигурации
+task setup           # Запуск специфичной настройки проекта
+task db:migrate      # Настройка базы данных
+# ... ещё больше шагов настройки
 ```
 
-This process is:
-- **Time-consuming**: Multiple commands to remember and run
-- **Error-prone**: Easy to miss steps or run them in wrong order
-- **Inconsistent**: Different projects have different setup procedures
-- **Frustrating**: Especially for new team members
+Этот процесс:
+- **Занимает много времени**: Множество команд, которые нужно помнить и выполнять
+- **Подвержен ошибкам**: Легко пропустить шаги или выполнить их в неправильном порядке
+- **Непостоянный**: У разных проектов разные процедуры настройки
+- **Раздражающий**: Особенно для новых членов команды
 
-## The Solution
+## Решение
 
-Razd automates this entire workflow into a single command:
+Razd автоматизирует весь этот процесс одной командой:
 
 ```bash
-# The Razd way
+# Способ Razd
 razd up https://github.com/company/awesome-project.git
 ```
 
-That's it! Razd handles the entire setup process automatically.
+Вот и всё! Razd автоматически обрабатывает весь процесс настройки.
 
-## How Razd Works
+## Как работает Razd
 
-Razd integrates three powerful tools to create a seamless setup experience:
+Razd интегрирует три мощных инструмента для создания бесшовного опыта настройки:
 
-### 1. **git** - Repository Management
-- Clones repositories from any Git hosting service
-- Supports all Git protocols (HTTPS, SSH, Git)
-- Works with public and private repositories
+### 1. **git** - Управление репозиториями
+- Клонирует репозитории с любого Git хостинга
+- Поддерживает все Git протоколы (HTTPS, SSH, Git)
+- Работает с публичными и приватными репозиториями
 
-### 2. **mise** - Tool Version Management
-- Automatically installs required development tools
-- Ensures consistent tool versions across team members
-- Supports 500+ tools (Node.js, Python, Ruby, Go, etc.)
+### 2. **mise** - Управление версиями инструментов
+- Автоматически устанавливает необходимые инструменты разработки
+- Обеспечивает единообразие версий инструментов для всех членов команды
+- Поддерживает более 500 инструментов (Node.js, Python, Ruby, Go и др.)
 
-### 3. **task** - Project Automation
-- Runs project-specific setup tasks
-- Handles dependencies, databases, configuration
-- Provides consistent task interface across projects
+### 3. **task** - Автоматизация проекта
+- Запускает специфичные для проекта задачи настройки
+- Обрабатывает зависимости, базы данных, конфигурацию
+- Предоставляет единый интерфейс для задач в разных проектах
 
-## Key Benefits
+## Ключевые преимущества
 
-### 🚀 **Speed**
-- One command replaces 5-10 manual steps
-- Parallel tool installation where possible
-- Smart caching reduces repeat setup time
+### 🚀 **Скорость**
+- Одна команда заменяет 5-10 ручных шагов
+- Параллельная установка инструментов где возможно
+- Умное кэширование сокращает время повторной настройки
 
-### 🌍 **Consistency**
-- Same workflow across all projects and platforms
-- Standardized setup process for teams
-- Works identically on Windows, macOS, and Linux
+### 🌍 **Согласованность**
+- Одинаковый процесс для всех проектов и платформ
+- Стандартизированный процесс настройки для команд
+- Работает идентично на Windows, macOS и Linux
 
-### 🛡️ **Reliability**
-- Automated error handling and recovery
-- Clear error messages with suggested fixes
-- Validation of each setup step
+### 🛡️ **Надёжность**
+- Автоматическая обработка ошибок и восстановление
+- Понятные сообщения об ошибках с предлагаемыми исправлениями
+- Валидация каждого шага настройки
 
-### 👥 **Team Friendly**
-- New team members get productive faster
-- Eliminates "works on my machine" problems
-- Documented setup process through configuration
+### 👥 **Удобство для команды**
+- Новые члены команды становятся продуктивными быстрее
+- Устраняет проблемы типа "у меня работает"
+- Документированный процесс настройки через конфигурацию
 
-### 🔧 **Integration**
-- Works with existing mise and taskfile setups
-- Non-intrusive - doesn't change your project structure
-- Extensible through custom configurations
+### 🔧 **Интеграция**
+- Работает с существующими настройками mise и taskfile
+- Неинтрузивный - не изменяет структуру вашего проекта
+- Расширяемый через пользовательские конфигурации
 
-## Core Concepts
+## Основные концепции
 
-### Convention Over Configuration
-Razd follows standard conventions:
-- Looks for `.mise.toml` or `.tool-versions` for tool requirements
-- Expects `Taskfile.yml` for project tasks
-- Runs the `setup` task by default
+### Соглашения вместо конфигурации
+Razd следует стандартным соглашениям:
+- Ищет `.mise.toml` или `.tool-versions` для требований к инструментам
+- Ожидает `Taskfile.yml` для задач проекта
+- По умолчанию запускает задачу `setup`
 
-### Zero Configuration
-Razd works immediately with projects that follow standard patterns:
-- No Razd-specific configuration required
-- Uses existing mise and taskfile configurations
-- Gracefully handles missing configurations
+### Нулевая конфигурация
+Razd работает сразу с проектами, следующими стандартным паттернам:
+- Не требуется специфичная для Razd конфигурация
+- Использует существующие конфигурации mise и taskfile
+- Корректно обрабатывает отсутствующие конфигурации
 
-### Smart Detection
-Razd automatically detects and adapts to your project:
-- Identifies available configuration files
-- Skips missing steps gracefully
-- Provides feedback on what's happening
+### Умное определение
+Razd автоматически определяет и адаптируется к вашему проекту:
+- Идентифицирует доступные конфигурационные файлы
+- Корректно пропускает отсутствующие шаги
+- Предоставляет обратную связь о происходящем
 
-## When to Use Razd
+## Когда использовать Razd
 
-### Perfect For:
-- **Team Onboarding**: Get new developers productive immediately
-- **Personal Productivity**: Eliminate repetitive setup tasks
-- **CI/CD Pipelines**: Consistent environment setup in automation
-- **Project Templates**: Create reusable project setups
-- **Workshops/Tutorials**: Quick project setup for participants
+### Идеально для:
+- **Онбординга команды**: Делает новых разработчиков продуктивными немедленно
+- **Личной продуктивности**: Устраняет повторяющиеся задачи настройки
+- **CI/CD пайплайнов**: Согласованная настройка окружения в автоматизации
+- **Шаблонов проектов**: Создание переиспользуемых настроек проектов
+- **Мастер-классов/Туториалов**: Быстрая настройка проекта для участников
 
-### Works Great With:
-- Modern development stacks (Node.js, Python, Rust, Go, etc.)
-- Monorepos with consistent tooling
-- Projects with automated setup procedures
-- Teams using mise for tool management
-- Projects with Taskfile.yml automation
+### Отлично работает с:
+- Современными стеками разработки (Node.js, Python, Rust, Go и др.)
+- Монорепозиториями с единообразным инструментарием
+- Проектами с автоматизированными процедурами настройки
+- Командами, использующими mise для управления инструментами
+- Проектами с автоматизацией Taskfile.yml
 
-## What Makes Razd Different
+## Что делает Razd особенным
 
-Unlike other setup tools, Razd:
+В отличие от других инструментов настройки, Razd:
 
-### Integrates Existing Tools
-- Doesn't reinvent the wheel
-- Leverages proven tools (git, mise, task)
-- Works with your existing workflows
+### Интегрирует существующие инструменты
+- Не изобретает велосипед
+- Использует проверенные инструменты (git, mise, task)
+- Работает с вашими существующими процессами
 
-### Focuses on Developer Experience
-- Designed for daily use by developers
-- Minimal learning curve
-- Clear, actionable error messages
+### Фокусируется на опыте разработчика
+- Разработан для ежедневного использования разработчиками
+- Минимальная кривая обучения
+- Понятные, действенные сообщения об ошибках
 
-### Respects Project Autonomy
-- Projects control their own setup process
-- Razd just orchestrates existing configurations
-- No vendor lock-in or proprietary formats
+### Уважает автономию проекта
+- Проекты контролируют свой собственный процесс настройки
+- Razd просто оркестрирует существующие конфигурации
+- Нет vendor lock-in или проприетарных форматов
 
-### Cross-Platform Native
-- Built in Rust for performance and reliability
-- Single binary with no runtime dependencies
-- Consistent behavior across all platforms
+### Кроссплатформенный по природе
+- Построен на Rust для производительности и надёжности
+- Единый исполняемый файл без зависимостей времени выполнения
+- Согласованное поведение на всех платформах
 
-## Getting Started
+## Начало работы
 
-Ready to try Razd? Here's what to do next:
+Готовы попробовать Razd? Вот что делать дальше:
 
-1. **[Install Razd](/installation/)** - Quick installation guide
-2. **[Quick Start](/getting-started)** - Your first project setup
-3. **[Examples](/faq#usage-questions)** - See real-world usage patterns
+1. **[Установить Razd](/installation/)** - Руководство по быстрой установке
+2. **[Быстрый старт](/getting-started)** - Ваша первая настройка проекта
+3. **[Примеры](/faq#usage-questions)** - Посмотрите реальные паттерны использования
 
-## Philosophy
+## Философия
 
-Razd is built on the principle that **project setup should be effortless**. We believe:
+Razd построен на принципе, что **настройка проекта должна быть простой**. Мы верим:
 
-- Developers should focus on building, not configuring
-- Setup processes should be fast, reliable, and consistent
-- Tools should integrate seamlessly with existing workflows
-- Automation should enhance, not replace, developer knowledge
+- Разработчики должны фокусироваться на создании, а не на настройке
+- Процессы настройки должны быть быстрыми, надёжными и согласованными
+- Инструменты должны бесшовно интегрироваться с существующими процессами
+- Автоматизация должна улучшать, а не заменять знания разработчика
 
-Razd embodies the Russian concept of "раздуплиться" - to wake up, get organized, and get moving efficiently. It's about cutting through setup friction so you can get to what matters: building great software.
+Razd воплощает русскую концепцию "раздуплиться" - проснуться, организоваться и начать эффективно двигаться. Это о преодолении трения при настройке, чтобы вы могли заняться тем, что важно: созданием отличного программного обеспечения.

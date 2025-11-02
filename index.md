@@ -4,69 +4,58 @@ layout: home
 
 hero:
   name: "Razd"
-  tagline: "The Modern Project Setup Tool"
+  tagline: "Современный инструмент для настройки проектов"
   image:
     src: /logo.png
     alt: Razd
   actions:
     - theme: brand
-      text: Get Started
+      text: Начать
       link: /getting-started
     - theme: alt
-      text: View on GitHub
+      text: Посмотреть на GitHub
       link: https://github.com/razd-cli/razd
 
 features:
   - icon: 🚀
-    title: 30-Second Setup
-    details: One command to clone, install tools, and run setup. No more multi-step project initialization.
-  
-  - icon: 🔧
-    title: Tool Integration
-    details: Seamlessly integrates git, mise, and taskfile for a complete development workflow.
-  
+    title: Настройка за 30 секунд
+    details: Одна команда для клонирования, установки инструментов и запуска настройки. Больше никаких многоэтапных инициализаций проектов.
+
   - icon: 🌍
-    title: Cross-Platform
-    details: Works consistently on Windows, macOS, and Linux with no extra configuration.
-  
-  - icon: ⚡
-    title: Smart Detection
-    details: Automatically detects mise and taskfile configurations in any project.
+    title: Кроссплатформенность
+    details: Работает одинаково на Windows, macOS и Linux без дополнительной настройки.
   
   - icon: 📦
-    title: Zero Dependencies
-    details: Single binary with no runtime dependencies beyond git, mise, and task.
-  
-  - icon: 🎯
-    title: Convention Over Configuration
-    details: Works out-of-the-box with sensible defaults while remaining fully customizable.
+    title: Нулевые зависимости
+    details: Единый исполняемый файл без зависимостей кроме mise и task.
+
 ---
 
-## Quick Example
+## Быстрый пример
 
-Get a project up and running in seconds:
+Запустите проект за считанные секунды:
 
 ```bash
-# Clone and set up a project in one command
+# Клонирование и настройка проекта одной командой
 razd up https://github.com/hello/world.git
 
-# Or set up an existing local project
+# Или настройка существующего локального проекта
 cd my-project
 razd up
 ```
 
-## How It Works
+## Как это работает
 
-Razd automates the common project setup workflow:
+Razd автоматизирует стандартный процесс настройки проекта:
 
-1. **Clone**: Uses git to clone the repository (if URL provided)
-2. **Install Tools**: Detects `.mise.toml` and runs `mise install`
-3. **Project Setup**: Detects `Taskfile.yml` and runs `task setup`
-4. **Ready**: Your project is ready for development
+1. **Клонирование**: Использует git для клонирования репозитория (если указан URL)
+2. **Установка инструментов**: Обнаруживает `.mise.toml` и запускает `mise install`
+3. **Настройка проекта**: Обнаруживает `Taskfile.yml` и запускает `task setup`
+4. **Готово**: Ваш проект готов к разработке
 
-## Why Razd?
+## Зачем Razd?
 
-Instead of running multiple commands every time you set up a project:
+Вместо выполнения множества команд при каждой настройке проекта:
 
 ```bash
 git clone https://github.com/hello/world.git
@@ -75,14 +64,14 @@ mise install
 task setup
 ```
 
-Just run:
+Просто выполните:
 
 ```bash
 razd up https://github.com/hello/world.git
 ```
 
-Perfect for:
-- **Team onboarding**: New developers get productive faster
-- **CI/CD**: Consistent environment setup in pipelines
-- **Personal productivity**: Eliminate repetitive setup tasks
+Идеально подходит для:
+- **Онбординга команды**: Новые разработчики становятся продуктивными быстрее
+- **CI/CD**: Согласованная настройка окружения в пайплайнах
+- **Личной продуктивности**: Устранение повторяющихся задач по настройке
 
