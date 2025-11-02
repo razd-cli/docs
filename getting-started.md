@@ -128,62 +128,36 @@ cd my-project
 razd up --init
 ```
 
-**Razd автоматически определит:**
-- 📦 **Node.js** — если найден `package.json`
-- 🐍 **Python** — если найден `requirements.txt`, `pyproject.toml` или `setup.py`
-- 🦀 **Rust** — если найден `Cargo.toml`
-- 🐹 **Go** — если найден `go.mod`
-- 🐳 **Docker** — если найден `Dockerfile`
-- 📄 **Generic** — базовая конфигурация для других проектов
-
-**Пример вывода для Node.js проекта:**
-
-```
-✓ Определен тип проекта: Node.js
-✓ Создан Razdfile.yml со стандартной конфигурацией
-✓ Добавлены инструменты: node@22, task@latest
-✓ Добавлены задачи: install, setup, dev, build, test
-```
 
 Созданный `Razdfile.yml` будет выглядеть так:
 
 ```yaml
-version: '3'
-
 mise:
   tools:
-    node: "22"
-    task: "latest"
-  plugins:
-    node: "https://github.com/asdf-vm/asdf-nodejs.git"
-
+    task: latest
 tasks:
   default:
-    desc: Настроить и запустить Node.js проект
+    desc: "Set up project and start development"
     cmds:
+      - echo "🚀 Setting up project..."
       - task: install
-      - task: dev
-  
+      
   install:
-    desc: Установить зависимости
+    desc: "Install development tools via mise"
     cmds:
+      - echo "📦 Installing tools..."
       - mise install
-      - npm install
-  
+      
   dev:
-    desc: Запустить dev сервер
+    desc: "Start development workflow"
     cmds:
-      - npm run dev
-  
+      - echo "🚀 Starting development..."
+
+      
   build:
-    desc: Собрать проект
+    desc: "Build project"
     cmds:
-      - npm run build
-  
-  test:
-    desc: Запустить тесты
-    cmds:
-      - npm test
+      - echo "🔨 Building project..."
 ```
 
 ## Основные команды
