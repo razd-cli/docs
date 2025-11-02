@@ -73,7 +73,18 @@ export default defineConfig({
       },
     ],
 
-    socialLinks: [{ icon: "github", link: "https://github.com/razd-cli/razd" }],
+    socialLinks: [
+      {
+        icon: "github",
+        link: "https://github.com/razd-cli/razd",
+        ariaLabel: "GitHub",
+      },
+      {
+        icon: "telegram",
+        link: "https://t.me/razd_cli",
+        ariaLabel: "Telegram",
+      },
+    ],
 
     search: {
       provider: "local",
