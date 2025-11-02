@@ -18,7 +18,7 @@ Before using Razd, make sure you have:
 - **task**: Will be installed automatically via mise if not present
 
 ::: tip
-Don't have mise installed? No problem! Check out our [installation guide](/guide/installation) for step-by-step instructions.
+Don't have mise installed? No problem! Check out our [installation guide](/installation/) for step-by-step instructions.
 :::
 
 ## Your First Project Setup
@@ -88,16 +88,16 @@ razd task
 
 Now that you have Razd working, explore these topics:
 
-- **[Installation Guide](/guide/installation)**: Learn about different installation methods
-- **[What is Razd](/guide/what-is-razd)**: Understand Razd's philosophy and benefits
-- **[Command Reference](/reference/commands)**: Explore all available commands
+- **[Installation Guide](/installation/)**: Learn about different installation methods
+- **[What is Razd](/guide/)**: Understand Razd's philosophy and benefits
+- **[FAQ](/faq)**: Common questions and troubleshooting
 
 ## Common Issues
 
 Having trouble? Check these common solutions:
 
 ### Command not found: razd
-Make sure Razd is properly installed and in your PATH. See the [installation guide](/guide/installation).
+Make sure Razd is properly installed and in your PATH. See the [installation guide](/installation/).
 
 ### mise command not found
 Razd requires mise for tool management. Install it from [mise.jdx.dev](https://mise.jdx.dev/getting-started.html).
@@ -106,13 +106,13 @@ Razd requires mise for tool management. Install it from [mise.jdx.dev](https://m
 Make sure your `Taskfile.yml` has a `setup` task defined. You can create a simple setup task to get started.
 
 ::: tip Need Help?
-If you're still having issues, check our [FAQ](/troubleshooting/faq) or reach out on [GitHub](https://github.com/razd-cli/razd/issues).
+If you're still having issues, check our [FAQ](/faq) or reach out on [GitHub](https://github.com/razd-cli/razd/issues).
 :::
 
 ## What's Next?
 
 Ready to dive deeper? Here are some recommended next steps:
 
-1. **Explore Commands**: Learn about all [available commands](/reference/commands)
+1. **Explore FAQ**: Learn about [common usage patterns](/faq#usage-questions)
 2. **Team Setup**: Set up Razd for your development team
 3. **Advanced Usage**: Create custom project setups and automation

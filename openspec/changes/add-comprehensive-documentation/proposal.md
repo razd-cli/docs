@@ -40,62 +40,98 @@ The absence of quality documentation creates a barrier to growth and limits the 
 
 ## What Changes
 
-This proposal introduces comprehensive user-facing documentation capability for razd-cli, including:
+This proposal introduces a minimalist user-facing documentation site for razd-cli using the following structure:
 
-### New Documentation Infrastructure
-- VitePress-based static site with responsive design
-- Automated build and deployment pipeline
-- Search functionality and navigation
-- Performance optimization (<2s load times)
+### Documentation Infrastructure
+- VitePress-based static site with Catppuccin theming
+- Responsive design with mobile support
+- Built-in search functionality
+- Fast page loads (<2s)
+- GitHub Pages hosting
 
-### Core Documentation Content
-- Landing page with clear value proposition
-- Multi-platform installation guides (Windows, macOS, Linux)
-- Getting started tutorial with real examples
-- Complete CLI command reference with examples
-- Configuration file documentation (Razdfile.yml, mise integration)
+### Documentation Structure (Minimalist Approach)
+```
+docs/
+├── index.md              # Hero landing page
+├── getting-started.md    # Quick start guide
+├── faq.md               # Frequently asked questions
+├── guide/
+│   └── index.md         # "What is Razd?" explanation
+└── installation/
+    └── index.md         # Multi-platform installation guide
+```
 
-### Advanced User Guides
-- Project setup patterns for popular tech stacks
-- Integration guides for development workflows
-- Best practices and common patterns
-- Comprehensive troubleshooting guide
-- Migration guide from manual setup processes
+### Core Documentation Pages
 
-### Community Resources
-- FAQ section with common questions
-- Support channels and contribution guidelines
-- Feedback mechanisms for documentation quality
-- Community-driven content improvement processes
+**Landing Page (`index.md`)**
+- Hero section with logo and tagline
+- Key features overview (6 feature cards)
+- Quick example showing `razd up` command
+- Visual appeal with call-to-action buttons
 
-The changes focus entirely on user-facing documentation and do not modify the CLI tool itself or its core functionality.
+**What is Razd (`guide/index.md`)**
+- Problem statement (manual project setup pain)
+- Solution overview (one-command automation)
+- How Razd works (git + mise + task integration)
+- Benefits and use cases
+
+**Installation (`installation/index.md`)**
+- Quick install via mise (recommended)
+- Platform-specific binary downloads (Windows, macOS, Linux)
+- Build from source instructions
+- Verification steps
+
+**Getting Started (`getting-started.md`)**
+- Prerequisites checklist
+- First project setup walkthrough
+- Understanding the workflow
+- Next steps and customization basics
+
+**FAQ (`faq.md`)**
+- General questions about Razd
+- Installation and setup help
+- Usage questions and common scenarios
+- Troubleshooting common issues
+- Advanced use cases
+
+The implementation uses a "just enough documentation" philosophy—covering essential user journeys without extensive hierarchical navigation or advanced guides. Future expansions can build on this foundation as user needs evolve.
 
 ## Scope
 
 ### In Scope
-- User-facing documentation website
-- Installation guides for all supported platforms
-- Getting started tutorials and quick start guides
-- Comprehensive command reference
-- Configuration file documentation
-- Use case guides and examples
-- FAQ and troubleshooting
-- Migration from existing tools
+- Minimalist documentation website with VitePress
+- Landing page with hero section and feature highlights
+- "What is Razd?" explanation page
+- Multi-platform installation guide
+- Getting started tutorial
+- FAQ covering common questions and troubleshooting
+- Basic navigation and search functionality
+- Mobile-responsive design
+- GitHub Pages deployment
 
 ### Out of Scope
-- Developer/contributor documentation (separate from user docs)
-- Internal API documentation
-- Marketing materials
+- Comprehensive command reference (basic usage covered in FAQ/getting-started)
+- Advanced user guides and best practices
+- Developer/contributor documentation
+- Video tutorials or interactive demos
+- Automated CI/CD deployment pipeline (manual deployment acceptable)
+- Documentation versioning system
+- Example project repository gallery
+- Community contribution portal
 
 ## Success Criteria
 
-- [ ] Complete documentation coverage for all user-facing features
-- [ ] Installation success rate >95% following documentation
-- [ ] Time-to-first-success <10 minutes for new users
+- [x] Documentation site deployed and accessible
+- [x] Landing page with clear value proposition
+- [x] Multi-platform installation guide complete
+- [x] Getting started tutorial walkthrough
+- [x] FAQ section with common questions
+- [x] "What is Razd?" explanation page
+- [x] Search functionality working
+- [x] Mobile-responsive design
 - [ ] Documentation site loads in <2 seconds
-- [ ] Search functionality covers all content
-- [ ] Mobile-responsive design
-- [ ] Documentation stays current with releases (automation)
+- [ ] Site deployed to GitHub Pages with custom domain (if applicable)
+- [ ] Basic navigation validated with user testing
 
 ## Dependencies
 

@@ -113,7 +113,7 @@ Yes! Razd works well with monorepos. You can:
 ### "Command not found: razd"
 
 This means Razd isn't in your PATH. Solutions:
-1. Reinstall using the [installation guide](/guide/installation)
+1. Reinstall using the [installation guide](/installation/)
 2. Check that the binary is executable (`chmod +x razd` on Unix)
 3. Verify your PATH includes the installation directory
 

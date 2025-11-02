@@ -49,8 +49,10 @@ export default defineConfig({
     logo: "/logo.png",
 
     nav: [
-      { text: "Guide", link: "/guide/getting-started" },
-      { text: "Reference", link: "/reference/commands" },
+      { text: "Guide", link: "/guide/" },
+      { text: "Getting Started", link: "/getting-started" },
+      { text: "Installation", link: "/installation/" },
+      { text: "FAQ", link: "/faq" },
       {
         text: "v0.1.14",
         items: [
@@ -65,19 +67,20 @@ export default defineConfig({
     sidebar: {
       "/guide/": [
         {
-          text: "Getting Started",
+          text: "Guide",
           items: [
-            { text: "What is Razd?", link: "/guide/what-is-razd" },
-            { text: "Installation", link: "/guide/installation" },
-            { text: "Quick Start", link: "/guide/getting-started" },
+            { text: "What is Razd?", link: "/guide/" },
+            { text: "Installation", link: "/installation/" },
+            { text: "Getting Started", link: "/getting-started" },
+            { text: "FAQ", link: "/faq" },
           ],
         },
       ],
 
-      "/reference/": [
+      "/installation/": [
         {
-          text: "Command Reference",
-          items: [{ text: "Overview", link: "/reference/commands" }],
+          text: "Installation",
+          items: [{ text: "Overview", link: "/installation/" }],
         },
       ],
     },

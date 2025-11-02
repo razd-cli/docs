@@ -145,9 +145,9 @@ Unlike other setup tools, Razd:
 
 Ready to try Razd? Here's what to do next:
 
-1. **[Install Razd](/guide/installation)** - Quick installation guide
-2. **[Quick Start](/guide/getting-started)** - Your first project setup
-3. **[Examples](/examples/)** - See real-world usage patterns
+1. **[Install Razd](/installation/)** - Quick installation guide
+2. **[Quick Start](/getting-started)** - Your first project setup
+3. **[Examples](/faq#usage-questions)** - See real-world usage patterns
 
 ## Philosophy
 
