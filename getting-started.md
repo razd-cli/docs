@@ -477,10 +477,10 @@ cat Razdfile.yml
 
 ### Присоединяйтесь к сообществу:
 
-- 🐛 [Сообщайте о багах](https://github.com/razd-cli/razd/issues)
-- 💬 [Задавайте вопросы](https://github.com/razd-cli/razd/discussions)
-- 🌟 [Поставьте звезду на GitHub](https://github.com/razd-cli/razd)
-- 🤝 [Внесите вклад](https://github.com/razd-cli/razd/blob/main/CONTRIBUTING.md)
+- 🐛 [Задавайте вопросы в Issues-разделе](https://github.com/razd-cli/razd/issues)
+- 💬 [Задавайте вопросы в Telegram](https://t.me/razd_cli)
+- 🌟 [Поддержите проект звездой на GitHub](https://github.com/razd-cli/razd)
+- 🤝 [Участвуйте в разработке проекта](https://github.com/razd-cli/razd/blob/main/CONTRIBUTING.md)
 
 Удачной разработки с Razd! 🚀
 
@@ -511,9 +511,6 @@ cat Razdfile.yml
 ```bash
 # Проверьте, что razd работает
 razd --version
-
-# Проверьте доступные задачи (если существует Taskfile.yml)
-razd task --list
 
 # Запустите задачу разработки по умолчанию
 razd task
