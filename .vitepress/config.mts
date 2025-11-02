@@ -26,7 +26,7 @@ export default defineConfig({
         nav: [
           { text: "Документация", link: "/guide/" },
           {
-            text: "v0.1.14",
+            text: "v0.4.2",
             items: [
               {
                 text: "Примечания к релизу",
@@ -82,7 +82,7 @@ export default defineConfig({
         nav: [
           { text: "Docs", link: "/en/guide/" },
           {
-            text: "v0.1.14",
+            text: "v0.4.42",
             items: [
               {
                 text: "Release Notes",
