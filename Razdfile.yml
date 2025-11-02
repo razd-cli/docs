@@ -1,4 +1,3 @@
-version: '3'
 mise:
   tools:
     node: '24'
@@ -27,7 +26,3 @@ tasks:
     cmds:
     - echo "🔨 Building project..."
     - pnpm run build
-  cust:
-    desc: cust
-    cmds:
-    - echo "Cust..."
