@@ -31,11 +31,11 @@ features:
 
 ---
 
-<h2 style="text-align: center; margin-top: 2rem;">Демонстрация</h2>
+<!-- <h2 style="text-align: center; margin-top: 2rem;">Демонстрация</h2>
 
 <div style="max-width: 80%; margin: 2rem auto;">
   <AsciinemaPlayer 
     src="https://asciinema.org/a/7l6SCqIfb6Ic8AfgeQhcegqBB.js" 
     castId="asciicast-7l6SCqIfb6Ic8AfgeQhcegqBB" 
   />
-</div>
+</div> -->

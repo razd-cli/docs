@@ -61,12 +61,12 @@ source ~/.bashrc  # или ~/.zshrc для zsh
 # Установите плагин Razd
 mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd
 
-# Установите последнюю версию (v0.4.2)
+# Установите последнюю версию (v0.4.4)
 mise use -g razd@latest
 
 # Проверьте установку
 razd --version
-# Должно вывести: razd 0.4.2
+# Должно вывести: razd 0.4.4
 ```
 
 ::: details Альтернативные способы установки

@@ -18,26 +18,14 @@ hero:
 
 features:
   - icon: 🚀
-    title: 30-Second Setup
+    title: Project Setup Automation
     details: One command to clone, install tools, and run setup. No more multi-step project initialization.
-  
-  - icon: 🔧
-    title: Tool Integration
-    details: Seamlessly integrates git, mise, and taskfile for a complete development workflow.
-  
+
   - icon: 🌍
     title: Cross-Platform
     details: Works consistently on Windows, macOS, and Linux with no extra configuration.
   
-  - icon: ⚡
-    title: Smart Detection
-    details: Automatically detects mise and taskfile configurations in any project.
-  
   - icon: 📦
-    title: Zero Dependencies
-    details: Single binary with no runtime dependencies beyond git, mise, and task.
-  
-  - icon: 🎯
-    title: Convention Over Configuration
-    details: Works out-of-the-box with sensible defaults while remaining fully customizable.
+    title: Automatic Tool Management
+    details: No need to manually install Node.js, Python, Go, and other tools — everything is installed automatically via mise during project setup.
 ---
