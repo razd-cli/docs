@@ -29,3 +29,11 @@ features:
     title: Automatic Tool Management
     details: No need to manually install Node.js, Python, Go, and other tools — everything is installed automatically via mise during project setup.
 ---
+
+<h2 style="text-align: center; margin-top: 2rem;">Demo</h2>
+
+<div style="max-width: 70%; margin: 2rem auto;">
+  <VideoPlayer 
+    src="/2025-11-03 08-58-58.mp4"
+  />
+</div>
