@@ -33,11 +33,19 @@ features:
 
 <h2 style="text-align: center; margin-top: 2rem;">Демонстрация</h2>
 
-<div style="max-width: 70%; margin: 2rem auto;">
+<div style="max-width: 100%; margin: 2rem auto;">
   <VideoPlayer 
     src="/2025-11-03 08-58-58.mp4"
   />
 </div>
+
+<style scoped>
+@media (min-width: 768px) {
+  div[style*="max-width: 100%"] {
+    max-width: 70% !important;
+  }
+}
+</style>
 
 <!-- <div style="max-width: 80%; margin: 2rem auto;">
   <AsciinemaPlayer 
