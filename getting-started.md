@@ -25,7 +25,7 @@ razd --version
 
 ### Клонировать и настроить проект
 ```bash
-razd up https://github.com/user/project
+razd up https://github.com/razd-cli/razd-nodejs-example
 ```
 
 ### Настроить существующий проект
