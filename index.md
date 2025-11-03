@@ -30,3 +30,8 @@ features:
     details: Не нужно вручную устанавливать Node.js, Python, Go и другие инструменты — всё устанавливается автоматически через mise при настройке проекта.
 
 ---
+
+<AsciinemaPlayer 
+  src="https://asciinema.org/a/7l6SCqIfb6Ic8AfgeQhcegqBB.js" 
+  castId="asciicast-7l6SCqIfb6Ic8AfgeQhcegqBB" 
+/>
