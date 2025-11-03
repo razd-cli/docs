@@ -30,7 +30,7 @@ features:
     details: No need to manually install Node.js, Python, Go, and other tools — everything is installed automatically via mise during project setup.
 ---
 
-<h2 style="text-align: center; margin-top: 2rem;">Demo</h2>
+<h2 style="text-align: center; margin-top: 2rem; font-size: 2rem;">Demo</h2>
 
 <div style="max-width: 100%; margin: 2rem auto;">
   <VideoPlayer 
@@ -41,7 +41,7 @@ features:
 <style scoped>
 @media (min-width: 768px) {
   div[style*="max-width: 100%"] {
-    max-width: 70% !important;
+    max-width: 75% !important;
   }
 }
 </style>

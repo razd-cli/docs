@@ -31,7 +31,7 @@ features:
 
 ---
 
-<h2 style="text-align: center; margin-top: 2rem;">Демонстрация</h2>
+<h2 style="text-align: center; margin-top: 2rem; font-size: 2rem;">Демонстрация</h2>
 
 <div style="max-width: 100%; margin: 2rem auto;">
   <VideoPlayer 
@@ -42,7 +42,7 @@ features:
 <style scoped>
 @media (min-width: 768px) {
   div[style*="max-width: 100%"] {
-    max-width: 70% !important;
+    max-width: 75% !important;
   }
 }
 </style>
