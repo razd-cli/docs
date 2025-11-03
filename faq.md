@@ -154,22 +154,15 @@ razd up --init
 
 ### Какие инструменты поддерживает mise?
 
-**Более 500 инструментов!** Включая:
+**Многие стеки технологий!** Включая:
 
 **Языки программирования:**
 - JavaScript/TypeScript: `node`, `deno`, `bun`
 - Python: `python`, `poetry`, `pipenv`
-- Ruby: `ruby`, `bundler`
-- Go: `go`
 - Rust: `rust`, `cargo`
-- Java: `java`, `maven`, `gradle`
 - PHP: `php`, `composer`
+- Java: `java`, `maven`, `gradle`
 - И многие другие
-
-**Инструменты разработки:**
-- Базы данных: `postgres`, `mysql`, `redis`, `mongodb`
-- Облачные CLI: `aws`, `gcloud`, `azure-cli`, `kubectl`
-- Утилиты: `docker`, `terraform`, `ansible`, `gh`
 
 **Подробнее:** [mise plugins](https://mise.jdx.dev/plugins.html)
 
