@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Razd",
   description:
-    "Упрощённая настройка проекта с интеграцией git, mise и taskfile",
+    "Современный инструмент для настройки проектовУпрощённая настройка проекта с интеграцией git, mise и taskfile",
   base: "/docs/",
 
   // Support for iconify-icon custom elements
@@ -21,7 +21,7 @@ export default defineConfig({
       lang: "ru",
       title: "Razd",
       description:
-        "Упрощённая настройка проекта с интеграцией git, mise и taskfile",
+        "Современный инструмент для настройки проектов. Упрощённая настройка проекта с интеграцией git, mise и taskfile",
       themeConfig: {
         nav: [
           { text: "Документация", link: "/guide/" },
@@ -133,13 +133,56 @@ export default defineConfig({
 
     // Theme and meta configurations
     ["meta", { name: "theme-color", content: "#cba6f7" }], // Catppuccin Mocha Mauve
-    ["meta", { name: "og:type", content: "website" }],
+
+    // SEO Meta Tags
     [
       "meta",
-      { name: "og:image", content: "https://razd-cli.github.io/docs/logo.png" },
+      {
+        name: "keywords",
+        content:
+          "razd, project setup, mise, taskfile, git, automation, cross-platform, cli tool, developer tools, project management",
+      },
     ],
-    ["meta", { name: "og:image:width", content: "1200" }],
-    ["meta", { name: "og:image:height", content: "630" }],
+    ["meta", { name: "author", content: "razd-cli" }],
+    ["meta", { name: "robots", content: "index, follow" }],
+
+    // Open Graph Tags
+    ["meta", { property: "og:type", content: "website" }],
+    [
+      "meta",
+      { property: "og:url", content: "https://razd-cli.github.io/docs/" },
+    ],
+    ["meta", { property: "og:site_name", content: "Razd" }],
+    [
+      "meta",
+      {
+        property: "og:image",
+        content: "https://razd-cli.github.io/docs/logo.png",
+      },
+    ],
+    ["meta", { property: "og:image:width", content: "1200" }],
+    ["meta", { property: "og:image:height", content: "630" }],
+    [
+      "meta",
+      { property: "og:image:alt", content: "Razd - Modern Project Setup Tool" },
+    ],
+
+    // Twitter Card Tags
+    ["meta", { name: "twitter:card", content: "summary_large_image" }],
+    [
+      "meta",
+      {
+        name: "twitter:image",
+        content: "https://razd-cli.github.io/docs/logo.png",
+      },
+    ],
+    [
+      "meta",
+      {
+        name: "twitter:image:alt",
+        content: "Razd - Modern Project Setup Tool",
+      },
+    ],
   ],
 
   themeConfig: {
@@ -214,4 +257,71 @@ export default defineConfig({
   // Performance optimization
   lastUpdated: true,
   cleanUrls: true,
+
+  // Generate sitemap for better SEO
+  sitemap: {
+    hostname: "https://razd-cli.github.io/docs/",
+  },
+
+  // Transform page data to add canonical URLs and dynamic meta tags
+  transformPageData(pageData) {
+    const canonicalUrl =
+      `https://razd-cli.github.io/docs/${pageData.relativePath}`
+        .replace(/index\.md$/, "")
+        .replace(/\.md$/, ".html");
+
+    pageData.frontmatter.head ??= [];
+
+    // Add canonical URL
+    pageData.frontmatter.head.push([
+      "link",
+      { rel: "canonical", href: canonicalUrl },
+    ]);
+
+    // Determine the appropriate title
+    const isHomePage = pageData.frontmatter.layout === "home";
+    const pageTitle = isHomePage
+      ? "Razd - Modern Project Setup Tool"
+      : pageData.title
+      ? `${pageData.title} | Razd`
+      : "Razd";
+
+    // Add dynamic Open Graph title
+    pageData.frontmatter.head.push([
+      "meta",
+      {
+        property: "og:title",
+        content: pageTitle,
+      },
+    ]);
+
+    // Add dynamic Open Graph description
+    if (pageData.description) {
+      pageData.frontmatter.head.push([
+        "meta",
+        {
+          property: "og:description",
+          content: pageData.description,
+        },
+      ]);
+
+      // Add Twitter description
+      pageData.frontmatter.head.push([
+        "meta",
+        {
+          name: "twitter:description",
+          content: pageData.description,
+        },
+      ]);
+    }
+
+    // Add dynamic Twitter title
+    pageData.frontmatter.head.push([
+      "meta",
+      {
+        name: "twitter:title",
+        content: pageTitle,
+      },
+    ]);
+  },
 });

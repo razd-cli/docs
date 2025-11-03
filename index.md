@@ -1,6 +1,13 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: Razd - Современный инструмент для настройки проектов
+titleTemplate: false
+description: Автоматизация настройки проекта с интеграцией git, mise и taskfile. Одна команда для клонирования, установки инструментов и запуска настройки.
+head:
+  - - meta
+    - name: keywords
+      content: razd, настройка проекта, mise, taskfile, git, автоматизация, кроссплатформенность, cli инструмент, инструменты разработчика, управление проектами
 
 hero:
   name: "Razd"

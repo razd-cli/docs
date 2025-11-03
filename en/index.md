@@ -1,6 +1,13 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
+title: Razd - The Modern Project Setup Tool
+titleTemplate: false
+description: Streamlined project setup automation with git, mise, and taskfile integration. One command to clone, install tools, and run setup.
+head:
+  - - meta
+    - name: keywords
+      content: razd, project setup, mise, taskfile, git, automation, cross-platform, cli tool, developer tools, project management
 
 hero:
   name: "Razd"
