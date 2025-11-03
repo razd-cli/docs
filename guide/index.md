@@ -230,7 +230,6 @@ razd run --help
 ### Минимальная конфигурация
 
 ```yaml
-version: '3'
 
 mise:
   tools:
@@ -245,7 +244,6 @@ tasks:
 ### Полная конфигурация
 
 ```yaml
-version: '3'
 
 # Управление инструментами через mise
 mise:
@@ -434,7 +432,7 @@ razd up --init
 
 # Или создайте минимальный вручную
 cat > Razdfile.yml << 'EOF'
-version: '3'
+
 mise:
   tools:
     node: "22"
