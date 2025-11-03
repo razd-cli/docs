@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { vitepressPluginLegend } from "vitepress-plugin-legend";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -251,6 +252,9 @@ export default defineConfig({
     theme: {
       light: "catppuccin-latte",
       dark: "catppuccin-mocha",
+    },
+    config(md) {
+      vitepressPluginLegend(md as any);
     },
   },
 
