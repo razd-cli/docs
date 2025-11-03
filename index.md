@@ -10,7 +10,7 @@ hero:
     alt: Razd
   actions:
     - theme: brand
-      text: Начать
+      text: Начать знакомство 
       link: /getting-started
     - theme: alt
       text: Посмотреть на GitHub
