@@ -12,8 +12,7 @@ Set up Node.js projects with automatic version installation via mise and task co
 - **Python** - set up Python projects with pip, poetry, and virtual environments
 - **Rust** - set up Rust projects with cargo and rustup
 - **Go** - set up Go projects with modules and tools
-- **Deno** - modern runtime for JavaScript/TypeScript
-- **Bun** - fast JavaScript runtime and package manager
+- **Ruby** - set up Ruby projects with bundler and rbenv
 
 ## Adding New Stacks
 

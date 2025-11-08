@@ -7,8 +7,10 @@
       :description="example.description"
       :icon="example.icon"
       :tags="example.tags"
-      :website="example.website"
+      :guide="example.guide"
       :source="example.source"
+      :guide-label="guideLabel"
+      :source-label="sourceLabel"
     />
   </div>
 </template>
@@ -22,16 +24,20 @@ export interface Example {
   description: string;
   icon: string;
   tags: string[];
-  website?: string;
+  guide?: string;
   source?: string;
 }
 
 interface Props {
   examples?: Example[];
+  guideLabel?: string;
+  sourceLabel?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
   examples: undefined,
+  guideLabel: undefined,
+  sourceLabel: undefined,
 });
 
 const defaultExamples: Example[] = [

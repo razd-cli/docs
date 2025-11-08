@@ -121,14 +121,6 @@ mise:
     node: "latest"     # Самая новая версия
 ```
 
-### Использование .nvmrc
-
-Если в проекте есть файл `.nvmrc`, mise автоматически использует указанную в нём версию:
-
-```bash
-# .nvmrc
-22
-```
 
 ## Работа с пакетными менеджерами
 
@@ -211,7 +203,7 @@ razd run test
 ### Просмотр всех доступных задач
 
 ```bash
-razd run
+razd list
 ```
 
 ## Примеры проектов
@@ -220,7 +212,7 @@ razd run
 
 ## Без Razd
 
-Если вы предпочитаете работать без Razd, можно использовать mise и task напрямую:
+Если вы предпочитаете работать без Razd, можно использовать mise напрямую:
 
 ```bash
 # Установка mise
@@ -228,11 +220,10 @@ curl https://mise.run | sh
 
 # Установка инструментов
 mise install node@22
-mise install task@latest
 
-# Использование task
-task install
-task dev
+# Запуск проекта
+npm install
+npm run dev
 ```
 
 ## Переменные окружения
@@ -242,19 +233,6 @@ task dev
 ```toml
 [tools]
 node = "22"
-
-[env]
-NODE_ENV = "development"
-PORT = "3000"
-LOG_LEVEL = "debug"
-```
-
-Или создайте файл `.env`:
-
-```bash
-NODE_ENV=development
-PORT=3000
-LOG_LEVEL=debug
 ```
 
 ## Полезные ссылки

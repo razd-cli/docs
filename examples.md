@@ -12,7 +12,7 @@ const examples = [
     icon: 'nodedotjs',
     tags: ['node.js', 'http'],
     source: 'https://github.com/razd-cli/razd-nodejs-example',
-    website: '/stack/nodejs/'
+    guide: '/stack/nodejs/'
   }
 ]
 </script>
@@ -34,7 +34,7 @@ h1 {
 Список примеров проектов с Razdfile для быстрой настройки.
 
 
-<ExamplesList :examples="examples" />
+<ExamplesList :examples="examples" guide-label="Руководство" source-label="Репозиторий" />
 
 
 ::: info Руководства по настройке различных окружений
