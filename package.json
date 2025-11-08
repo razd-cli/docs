@@ -10,6 +10,7 @@
   "dependencies": {
     "@catppuccin/vitepress": "^0.1.2",
     "@hywax/vitepress-yandex-metrika": "^1.0.0",
+    "simple-icons": "^15.19.0",
     "vitepress-plugin-legend": "^1.1.0"
   }
 }
