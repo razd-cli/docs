@@ -1,7 +1,7 @@
 <template>
   <div class="examples-grid">
     <ExampleCard
-      v-for="example in examples"
+      v-for="example in displayExamples"
       :key="example.title"
       :title="example.title"
       :description="example.description"
@@ -14,9 +14,10 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue';
 import ExampleCard from './ExampleCard.vue';
 
-interface Example {
+export interface Example {
   title: string;
   description: string;
   icon: string;
@@ -25,7 +26,15 @@ interface Example {
   source?: string;
 }
 
-const examples: Example[] = [
+interface Props {
+  examples?: Example[];
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  examples: undefined,
+});
+
+const defaultExamples: Example[] = [
   {
     title: 'Node.js API Server',
     description: 'RESTful API server built with Express.js, featuring authentication, database integration, and API documentation.',
@@ -69,6 +78,8 @@ const examples: Example[] = [
     source: 'https://github.com/razd-cli/razd-vue-example'
   }
 ];
+
+const displayExamples = computed(() => props.examples || defaultExamples);
 </script>
 
 <style scoped>
