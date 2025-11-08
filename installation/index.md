@@ -101,6 +101,26 @@ mise plugin uninstall razd
 
 ## Дополнительные инструменты
 
+### VS Code расширение (Рекомендуется)
+
+Для удобной работы с Razd в Visual Studio Code установите официальное расширение:
+
+**Установка через VS Code:**
+1. Откройте VS Code
+2. Перейдите в раздел расширений (Ctrl+Shift+X)
+3. Найдите "Razd" или используйте ID: `razd-cli.vscode-razd`
+4. Нажмите "Install"
+
+**Установка через командную строку:**
+```bash
+code --install-extension razd-cli.vscode-razd
+```
+
+
+**Ссылка на Marketplace:** [https://marketplace.visualstudio.com/items?itemName=razd-cli.vscode-razd](https://marketplace.visualstudio.com/items?itemName=razd-cli.vscode-razd)
+
+Расширение предоставляет удобства при работе с Razdfile.
+
 ### task (Опционально, устанавливается автоматически)
 
 Task используется для запуска задач проекта. Если он отсутствует, Razd установит его через mise:
