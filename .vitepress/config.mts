@@ -25,6 +25,7 @@ export default defineConfig({
         "Современный инструмент для настройки проектов. Упрощённая настройка проекта с интеграцией git, mise и taskfile",
       themeConfig: {
         nav: [
+          { text: "Примеры", link: "/examples/" },
           { text: "Документация", link: "/guide/" },
           {
             text: "v0.4.4",
@@ -44,6 +45,13 @@ export default defineConfig({
               { text: "Установка", link: "/installation/" },
               { text: "Руководство", link: "/guide/" },
               { text: "FAQ", link: "/faq" },
+            ],
+          },
+          {
+            text: "Стек технологий",
+            items: [
+              { text: "Обзор", link: "/stack/" },
+              { text: "Node.js", link: "/stack/nodejs/" },
             ],
           },
         ],
@@ -82,6 +90,7 @@ export default defineConfig({
       themeConfig: {
         nav: [
           { text: "Docs", link: "/en/guide/" },
+          { text: "Stack", link: "/en/stack/" },
           {
             text: "v0.4.42",
             items: [
@@ -100,6 +109,13 @@ export default defineConfig({
               { text: "Installation", link: "/en/installation/" },
               { text: "Guide", link: "/en/guide/" },
               { text: "FAQ", link: "/en/faq" },
+            ],
+          },
+          {
+            text: "Stack",
+            items: [
+              { text: "Overview", link: "/en/stack/" },
+              { text: "Node.js", link: "/en/stack/nodejs/" },
             ],
           },
         ],
