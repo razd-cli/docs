@@ -6,7 +6,6 @@ export default defineConfig({
   title: "Razd",
   description:
     "Современный инструмент для настройки проектовУпрощённая настройка проекта с интеграцией git, mise и taskfile",
-  base: "/docs/",
 
   // Support for iconify-icon custom elements
   vue: {
@@ -133,10 +132,7 @@ export default defineConfig({
 
   head: [
     // Favicon configurations
-    [
-      "link",
-      { rel: "icon", href: "https://razd-cli.github.io/docs/favicon.ico" },
-    ],
+    ["link", { rel: "icon", href: "https://razd-cli.com/favicon.ico" }],
     [
       "link",
       {
@@ -165,16 +161,13 @@ export default defineConfig({
 
     // Open Graph Tags
     ["meta", { property: "og:type", content: "website" }],
-    [
-      "meta",
-      { property: "og:url", content: "https://razd-cli.github.io/docs/" },
-    ],
+    ["meta", { property: "og:url", content: "https://razd-cli.com/" }],
     ["meta", { property: "og:site_name", content: "Razd" }],
     [
       "meta",
       {
         property: "og:image",
-        content: "https://razd-cli.github.io/docs/logo.png",
+        content: "https://razd-cli.com/logo.png",
       },
     ],
     ["meta", { property: "og:image:width", content: "1200" }],
@@ -190,7 +183,7 @@ export default defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content: "https://razd-cli.github.io/docs/logo.png",
+        content: "https://razd-cli.com/logo.png",
       },
     ],
     [
@@ -280,15 +273,14 @@ export default defineConfig({
 
   // Generate sitemap for better SEO
   sitemap: {
-    hostname: "https://razd-cli.github.io/docs/",
+    hostname: "https://razd-cli.com/",
   },
 
   // Transform page data to add canonical URLs and dynamic meta tags
   transformPageData(pageData) {
-    const canonicalUrl =
-      `https://razd-cli.github.io/docs/${pageData.relativePath}`
-        .replace(/index\.md$/, "")
-        .replace(/\.md$/, ".html");
+    const canonicalUrl = `https://razd-cli.com/${pageData.relativePath}`
+      .replace(/index\.md$/, "")
+      .replace(/\.md$/, ".html");
 
     pageData.frontmatter.head ??= [];
 
