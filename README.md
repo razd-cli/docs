@@ -1,27 +1,49 @@
-# Настройка проекта с Razd
+# shadcn-docs-nuxt Minimal Starter
 
-## Быстрый старт
+Starter template for [shadcn-docs-nuxt](https://github.com/ZTL-UwU/shadcn-docs-nuxt).
 
-### 1. Установка Razd
+## Setup
 
-Следуйте инструкциям по установке в [официальной документации](https://razd-cli.com/getting-started).
-
-### 2. Настройка проекта
-
-После установки razd выполните команды в директории проекта:
+Make sure to install the dependencies:
 
 ```bash
-# Установить зависимости и инструменты разработки
-razd run install
+# yarn
+yarn install
 
-# Запустить сервер разработки
-razd run dev
+# npm
+npm install
+
+# pnpm
+pnpm install
+
+# bun
+bun install
 ```
 
-### 3. Доступные команды
+## Development Server
 
-- `razd run install` — установка всех зависимостей
-- `razd run dev` — запуск сервера разработки
-- `razd run build` — сборка проекта
+Start the development server on http://localhost:3000
 
-Проект использует [mise](https://mise.jdx.dev/) для управления инструментами разработки. Все необходимые инструменты (Node.js, pnpm, task) будут установлены автоматически при первом запуске.
+```bash
+npm run dev
+```
+
+## Production
+
+[![Deploy to NuxtHub](https://hub.nuxt.com/button.svg)](https://hub.nuxt.com/new?repo=ZTL-UwU/shadcn-docs-nuxt-starter)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FZTL-UwU%2Fshadcn-docs-nuxt-starter)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2FZTL-UwU%2Fshadcn-docs-nuxt-starter)
+
+Build the application for production:
+
+```bash
+npm run build
+```
+
+Locally preview production build:
+
+```bash
+npm run preview
+```
+
+Checkout the [deployment documentation](https://shadcn-docs-nuxt.vercel.app/getting-started/deployment) for more information.

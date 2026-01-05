@@ -1,5 +1,0 @@
-[tools]
-node = "24"
-"npm:@fission-ai/openspec" = "latest"
-pnpm = "latest"
-task = "latest"
