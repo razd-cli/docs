@@ -6,26 +6,27 @@ navigation: false
 ::hero
 ---
 announcement:
-  title: 'Release v1'
-  icon: '🎉'
-  to: https://shadcn-docs-nuxt.vercel.app/blog/v1
-  target: _blank
+  title: 'v0.4.4 уже доступен'
+  icon: '🚀'
+  to: /documentation/getting-started
 actions:
-  - name: Documentation
-    to: https://shadcn-docs-nuxt.vercel.app/getting-started/introduction
+  - name: Начать знакомство
+    to: /documentation/getting-started
   - name: GitHub
     variant: outline
-    to: https://github.com/ZTL-UwU/shadcn-docs-nuxt
+    to: https://github.com/razd-cli/razd
     leftIcon: 'lucide:github'
 ---
 
 #title
-Welcome to shadcn-docs-nuxt
+Инструмент для настройки проектов
 
 #description
-Beautifully designed Nuxt Content template built with shadcn-vue. :br Customizable. Compatible. Open Source.
+Одна команда для клонирования, установки инструментов и запуска настройки. Больше никаких многоэтапных инициализаций проектов.
 ::
 
-::div{class="border rounded-lg shadow-md"}
-  :iframe{src="https://shadcn-docs-nuxt.vercel.app/getting-started/introduction" height="700" width="100%" class="rounded-lg" scrolling="no" frameborder="0"}
-::
+
+<video controls width="100%" class="rounded-lg">
+  <source src="/2025-11-03 08-58-58.mp4" type="video/mp4">
+</video>
+
