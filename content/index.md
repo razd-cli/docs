@@ -26,7 +26,7 @@ actions:
 ::
 
 
-<video controls width="100%" class="rounded-lg">
+<video controls width="80%" class="rounded-lg">
   <source src="/2025-11-03 08-58-58.mp4" type="video/mp4">
 </video>
 
