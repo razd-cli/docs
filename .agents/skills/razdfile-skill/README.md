@@ -36,9 +36,27 @@ Ask your AI agent to create, edit, or validate a Razdfile.yml:
 
 - Generates valid Razdfile.yml with correct `version: "1"` field
 - Enforces `dependencies` format with `using` field for mise or devbox
-- Validates mutual exclusion rules
-- Task definitions with deps, env, and commands
-- Templates for common project types (Node.js, Python, Go, etc.)
+- Validates mutual exclusion rules (dependencies vs mise/devbox top-level)
+- Validates `ensure` entries match `^[a-z][a-z0-9_-]*@[a-zA-Z0-9._-]+$`
+- Task definitions compatible with Taskfile format
+- Templates for common project types (Node.js, Python, Go, Ruby, Devbox)
+- CLI command reference for razd 1.x
+
+## CLI Reference
+
+```
+razd init                   Create Razdfile.yml
+razd init --using devbox    Create with devbox provider
+razd add <tool@version>     Add a dependency
+razd up                     Install dependencies
+razd up -r                  Install and run default task
+razd run [task]             Run task(s)
+razd list                   List tasks
+razd shell                  Start provisioned shell
+razd trust                  Trust project
+razd dev                    Run 'dev' task
+razd build                  Run 'build' task
+```
 
 ## License
 
