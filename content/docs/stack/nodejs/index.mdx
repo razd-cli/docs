@@ -1,0 +1,244 @@
+---
+title: Node.js
+description: Руководство по настройке Node.js проектов с использованием Razd.
+---
+
+## Использование
+
+Для работы с Node.js проектами Razd автоматически устанавливает нужную версию Node.js через mise и настраивает окружение для разработки.
+
+### Быстрый старт
+
+Клонировать и настроить готовый пример:
+
+```bash
+razd up https://github.com/razd-cli/razd-nodejs-example
+```
+
+Или настроить существующий проект:
+
+```bash
+cd your-nodejs-project
+razd up
+```
+
+### Что происходит при `razd up`
+
+1. Устанавливает указанную версию Node.js через mise
+2. Устанавливает Task (если указан в конфигурации)
+3. Выполняет задачи настройки (установка зависимостей)
+4. Проект готов к работе!
+
+## Конфигурация
+
+### Razdfile.yml
+
+Минимальная конфигурация для Node.js проекта:
+
+```yaml
+mise:
+  tools:
+    node: "22"      # Версия Node.js
+    task: latest    # Task runner (опционально)
+
+tasks:
+  default:
+    - install
+    - dev
+  
+  install:
+    desc: "Установка зависимостей"
+    cmds:
+      - npm install
+  
+  dev:
+    desc: "Запуск dev сервера"
+    cmds:
+      - npm run dev
+  
+  build:
+    desc: "Сборка проекта"
+    cmds:
+      - npm run build
+```
+
+### mise.toml
+
+Альтернативная конфигурация через mise:
+
+```toml
+[tools]
+node = "22"
+task = "latest"
+
+[env]
+NODE_ENV = "development"
+```
+
+### Taskfile.yml
+
+Пример Taskfile для Node.js проекта:
+
+```yaml
+version: '3'
+
+tasks:
+  install:
+    desc: Установка зависимостей
+    cmds:
+      - npm install
+
+  dev:
+    desc: Запуск development сервера
+    cmds:
+      - npm run dev
+
+  build:
+    desc: Сборка проекта для production
+    cmds:
+      - npm run build
+
+  test:
+    desc: Запуск тестов
+    cmds:
+      - npm test
+
+  lint:
+    desc: Проверка кода
+    cmds:
+      - npm run lint
+```
+
+## Управление версиями Node.js
+
+### Использование конкретных версий
+
+```yaml
+mise:
+  tools:
+    node: "22.0.0"     # Точная версия
+    # node: "22"       # Последняя 22.x.x
+    # node: "lts"      # Последняя LTS версия
+    # node: "latest"   # Самая новая версия
+```
+
+## Работа с пакетными менеджерами
+
+### npm (по умолчанию)
+
+```yaml
+tasks:
+  install:
+    cmds:
+      - npm install
+```
+
+### pnpm
+
+```yaml
+mise:
+  tools:
+    node: "22"
+    pnpm: "latest"
+
+tasks:
+  install:
+    cmds:
+      - pnpm install
+```
+
+### yarn
+
+```yaml
+mise:
+  tools:
+    node: "22"
+    yarn: "latest"
+
+tasks:
+  install:
+    cmds:
+      - yarn install
+```
+
+### bun
+
+```yaml
+mise:
+  tools:
+    bun: "latest"
+
+tasks:
+  install:
+    cmds:
+      - bun install
+```
+
+## Общие задачи
+
+### Установка зависимостей
+
+```bash
+razd run install
+```
+
+### Запуск dev сервера
+
+```bash
+razd run dev
+```
+
+### Сборка проекта
+
+```bash
+razd run build
+```
+
+### Запуск тестов
+
+```bash
+razd run test
+```
+
+### Просмотр всех доступных задач
+
+```bash
+razd list
+```
+
+## Примеры проектов
+
+- [razd-nodejs-example](https://github.com/razd-cli/razd-nodejs-example) - простой HTTP сервер с базовой настройкой
+
+## Без Razd
+
+Если вы предпочитаете работать без Razd, можно использовать mise напрямую:
+
+```bash
+# Установка mise
+curl https://mise.run | sh
+
+# Установка инструментов
+mise install node@22
+
+# Запуск проекта
+npm install
+npm run dev
+```
+
+## Переменные окружения
+
+Настройка переменных окружения в `mise.toml`:
+
+```toml
+[tools]
+node = "22"
+```
+
+## Полезные ссылки
+
+- [Документация Node.js](https://nodejs.org/docs/)
+- [Документация mise](https://mise.jdx.dev/)
+- [Документация Task](https://taskfile.dev/)
+- [npm документация](https://docs.npmjs.com/)
+- [pnpm документация](https://pnpm.io/)

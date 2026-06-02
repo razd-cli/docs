@@ -1,0 +1,38 @@
+---
+title: Razd - Документация
+description: Современный инструмент для настройки проектов. Автоматизация настройки проекта с интеграцией git, mise и taskfile. Одна команда для клонирования, установки инструментов и запуска настройки.
+---
+
+Razd — современный CLI инструмент на Rust, который автоматизирует полный цикл настройки проекта. Он оркестрирует работу git, mise и taskfile, превращая многошаговый процесс клонирования, установки инструментов и настройки зависимостей в одну команду `razd up`.
+
+## Ключевые возможности
+
+<Cards>
+  <Card title="Автоматизация настройки" href="/docs/getting-started" icon="Rocket">
+    Одна команда для клонирования, установки инструментов и запуска настройки
+  </Card>
+  <Card title="Кроссплатформенность" href="/docs/faq" icon="Globe">
+    Работает одинаково на Windows, macOS и Linux
+  </Card>
+  <Card title="Управление инструментами" href="/docs/guide" icon="Package">
+    Автоматическая установка Node.js, Python, Go и других инструментов через mise
+  </Card>
+  <Card title="Установка" href="/docs/installation" icon="Download">
+    Установите Razd за пару команд через mise
+  </Card>
+</Cards>
+
+## Быстрый старт
+
+```bash
+# Установите mise
+curl https://mise.run | sh  # macOS/Linux
+winget install jdx.mise     # Windows
+
+# Установите Razd
+mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd
+mise use -g razd@latest
+
+# Настройте проект одной командой
+razd up https://github.com/razd-cli/razd-nodejs-example
+```
