@@ -29,8 +29,11 @@ jobs:
       - name: Install ensures via mise
         run: mise install -y
 
-      - name: Install dependencies
+      - name: Razd up
         run: razd up --yes
+
+      - name: Install dependencies
+        run: razd install --yes
 
       - name: Build Next.js (static export)
         run: razd build --yes
