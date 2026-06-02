@@ -21,14 +21,14 @@ jobs:
       - name: Set up mise and razd
         uses: razd-cli/razd-action-mise@v1
         with:
-          mise-version: '2025.6.6'
-          razd-version: 'latest'
+          mise-version: "2025.6.6"
+          razd-version: "latest"
 
       - name: Install dependencies
-        run: razd install
+        run: razd install --yes
 
       - name: Build Next.js (static export)
-        run: razd build
+        run: razd build --yes
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

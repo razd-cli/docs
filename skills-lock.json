@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "razdfile-skill": {
+      "source": "razd-cli/razdfile-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "77301a23c9b6275b331d6b02b2861e381ba73ba86c3851222f56c5b62c98dfc6"
+    }
+  }
+}
