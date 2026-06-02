@@ -18,23 +18,17 @@ jobs:
       id-token: write
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Set up mise and razd
+        uses: razd-cli/razd-action-mise@v1
         with:
-          node-version: 22
-          cache: 'pnpm'
+          mise-version: '2025.6.6'
+          razd-version: 'latest'
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: razd install
 
       - name: Build Next.js (static export)
-        run: pnpm build
+        run: razd build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
