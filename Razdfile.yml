@@ -9,7 +9,6 @@ tasks:
     desc: "Set up and run development"
     cmds:
       - task: install
-      - task: dev
   install:
     desc: "Install dependencies"
     cmds:
