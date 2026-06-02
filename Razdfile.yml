@@ -1,7 +1,33 @@
 version: "1"
+
 dependencies:
-    using: mise
-    ensure:
-        - node@24
-        - pnpm@10
-tasks: {}
+  using: "mise"
+  ensure:
+    - "node@24"
+    - "pnpm@10"
+
+tasks:
+  default:
+    desc: "Установить зависимости и запустить проект"
+    cmds:
+      - task: install
+  install:
+    desc: "Install dependencies"
+    cmds:
+      - pnpm install
+  dev:
+    desc: "Start development server"
+    cmds:
+      - pnpm dev
+  build:
+    desc: "Build for production"
+    cmds:
+      - pnpm build
+  start:
+    desc: "Start production server"
+    cmds:
+      - pnpm start
+  typecheck:
+    desc: "Run type checking"
+    cmds:
+      - pnpm run types:check
