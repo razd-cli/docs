@@ -24,6 +24,9 @@ jobs:
           mise-version: "2025.6.6"
           razd-version: "latest"
 
+      - name: Install ensures via mise
+        run: mise install -y
+
       - name: Install dependencies
         run: razd up --yes
 
