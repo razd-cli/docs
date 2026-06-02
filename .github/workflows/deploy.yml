@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      MISE_VERBOSE: 1
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
