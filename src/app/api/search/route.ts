@@ -1,7 +1,5 @@
 import { docsSource } from '@/lib/source';
-import { createFromSource } from 'fumadocs-core/search/server';
+import { flexsearchFromSource } from 'fumadocs-core/search/flexsearch';
 
-export const { GET } = createFromSource(docsSource, {
-  // https://docs.orama.com/docs/orama-js/supported-languages
-  language: 'english',
-});
+export const revalidate = false;
+export const { staticGET: GET } = flexsearchFromSource(docsSource);
