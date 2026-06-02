@@ -25,7 +25,7 @@ jobs:
           razd-version: "latest"
 
       - name: Install dependencies
-        run: razd install --yes
+        run: razd up --yes
 
       - name: Build Next.js (static export)
         run: razd build --yes
