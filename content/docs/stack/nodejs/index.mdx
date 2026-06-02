@@ -36,30 +36,34 @@ razd up
 Минимальная конфигурация для Node.js проекта:
 
 ```yaml
-mise:
-  tools:
-    node: "22"      # Версия Node.js
-    task: latest    # Task runner (опционально)
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure:
+    - "node@22"       # Версия Node.js
+    - "pnpm@latest"   # Пакетный менеджер
 
 tasks:
   default:
-    - install
-    - dev
-  
+    deps: [install]
+    cmds:
+      - pnpm dev
+
   install:
     desc: "Установка зависимостей"
     cmds:
-      - npm install
-  
+      - pnpm install
+
   dev:
     desc: "Запуск dev сервера"
     cmds:
-      - npm run dev
-  
+      - pnpm dev
+
   build:
     desc: "Сборка проекта"
     cmds:
-      - npm run build
+      - pnpm build
 ```
 
 ### mise.toml
@@ -114,12 +118,13 @@ tasks:
 ### Использование конкретных версий
 
 ```yaml
-mise:
-  tools:
-    node: "22.0.0"     # Точная версия
-    # node: "22"       # Последняя 22.x.x
-    # node: "lts"      # Последняя LTS версия
-    # node: "latest"   # Самая новая версия
+dependencies:
+  using: "mise"
+  ensure:
+    - "node@22.0.0"   # Точная версия
+    # - "node@22"     # Последняя 22.x.x
+    # - "node@lts"    # Последняя LTS версия (если поддерживается mise)
+    # - "node@latest" # Самая новая версия
 ```
 
 ## Работа с пакетными менеджерами
@@ -136,10 +141,13 @@ tasks:
 ### pnpm
 
 ```yaml
-mise:
-  tools:
-    node: "22"
-    pnpm: "latest"
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure:
+    - "node@22"
+    - "pnpm@latest"
 
 tasks:
   install:
@@ -150,10 +158,13 @@ tasks:
 ### yarn
 
 ```yaml
-mise:
-  tools:
-    node: "22"
-    yarn: "latest"
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure:
+    - "node@22"
+    - "yarn@latest"
 
 tasks:
   install:
@@ -164,9 +175,12 @@ tasks:
 ### bun
 
 ```yaml
-mise:
-  tools:
-    bun: "latest"
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure:
+    - "bun@latest"
 
 tasks:
   install:

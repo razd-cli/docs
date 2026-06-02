@@ -119,58 +119,56 @@ Razd автоматически найдет конфигурацию (`Razdfile
 
 ```bash
 cd my-project
-razd up --init
+razd init
 ```
 
 Созданный `Razdfile.yml` будет выглядеть так:
 
 ```yaml
-mise:
-  tools:
-    task: latest
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure: []
+
 tasks:
   default:
     desc: "Set up project and start development"
     cmds:
       - echo "🚀 Setting up project..."
-      - task: install
-      
-  install:
-    desc: "Install development tools via mise"
-    cmds:
-      - echo "📦 Installing tools..."
-      - mise install
-      
-  dev:
-    desc: "Start development workflow"
-    cmds:
-      - echo "🚀 Starting development..."
-      
-  build:
-    desc: "Build project"
-    cmds:
-      - echo "🔨 Building project..."
 ```
 
-> Базовый `Razdfile.yml` содержит шаблонные задачи. Вам потребуется добавить необходимые инструменты в секцию `mise.tools` (например, `node: "22"`, `python: "3.11"`), заменить команды `echo` на реальные команды вашего проекта. Секция `tasks` основана на стандарте [Taskfile.yml](https://taskfile.dev/).
+> Базовый `Razdfile.yml` содержит минимальную конфигурацию. Добавьте инструменты в `dependencies.ensure` (например, `"node@22"`, `"python@3.11"`), используя `razd add node@22` или вручную. Секция `tasks` основана на стандарте [Taskfile.yml](https://taskfile.dev/).
 
 ## Основные команды
 
 ### Управление инструментами
 
 ```bash
-# Установить все инструменты из Razdfile.yml
-razd install
+# Установить все зависимости из Razdfile.yml
+razd up
+
+# Установить зависимости и запустить default задачу
+razd up -r
+
+# Добавить зависимость
+razd add node@22
 
 # Без автосинхронизации
-razd install --no-sync
+razd up --no-sync
 ```
 
 ### Настройка проекта
 
 ```bash
-# Установить зависимости проекта (npm install, pip install и т.д.)
-razd setup
+# Инициализировать новый Razdfile.yml
+razd init
+
+# С указанием провайдера
+razd init --using devbox
+
+# Миграция с существующего mise.toml или devbox.json
+razd init --migrate
 ```
 
 ### Запуск рабочих процессов
@@ -181,6 +179,9 @@ razd dev
 
 # Собрать проект
 razd build
+
+# Запустить интерактивную оболочку
+razd shell
 ```
 
 ### Выполнение кастомных задач
@@ -191,8 +192,9 @@ razd run test
 razd run lint
 razd run deploy
 
-# С аргументами
-razd run deploy --args "--env=production"
+# Список всех задач
+razd list
+razd list --all
 ```
 
 ### Вывод справки
@@ -208,14 +210,17 @@ razd run --help
 
 ## Понимание Razdfile.yml
 
-`Razdfile.yml` — это центральный файл конфигурации, который объединяет управление инструментами (mise) и автоматизацию задач (taskfile).
+`Razdfile.yml` — это центральный файл конфигурации, который объединяет управление зависимостями (через mise или devbox) и автоматизацию задач (taskfile).
 
 ### Минимальная конфигурация
 
 ```yaml
-mise:
-  tools:
-    node: "22"
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure:
+    - "node@22"
 
 tasks:
   default:
@@ -226,48 +231,40 @@ tasks:
 ### Полная конфигурация
 
 ```yaml
-# Управление инструментами через mise
-mise:
-  tools:
-    # Простые версии
-    node: "22"
-    python: "3.11"
-    task: "latest"
-    
-    # Расширенная конфигурация
-    go:
-      version: "1.21"
-      postinstall: "go install golang.org/x/tools/cmd/goimports@latest"
-      install_env:
-        CGO_ENABLED: "1"
+version: "1"
+
+# Управление зависимостями
+dependencies:
+  using: "mise"
   
-  # Кастомные плагины (опционально)
-  plugins:
-    node: "https://github.com/asdf-vm/asdf-nodejs.git"
+  # Инструменты в формате tool@version
+  ensure:
+    - "node@22"
+    - "python@3.11"
+    - "task@latest"
+  
+  # Нативная конфигурация mise (опционально)
+  extra:
+    mise:
+      env:
+        NODE_ENV: development
+      settings:
+        experimental: true
 
 # Определения задач
 tasks:
-  # Главная задача (выполняется при `razd up`)
+  # Главная задача (выполняется при `razd run` или `razd up -r`)
   default:
     desc: Настроить и запустить проект
+    deps: [install]
     cmds:
-      - task: install
-      - task: setup
-      - task: dev
+      - npm run dev
   
-  # Установка инструментов
+  # Установка зависимостей
   install:
-    desc: Установить инструменты разработки
-    cmds:
-      - mise install
-      - echo "✓ Инструменты установлены"
-  
-  # Настройка зависимостей
-  setup:
     desc: Установить зависимости проекта
     cmds:
       - npm install
-      - npm run build
   
   # Dev сервер
   dev:
@@ -282,14 +279,12 @@ tasks:
       - npm run build
       - npm run test
   
-  # Кастомная задача с переменными
+  # Деплой с переменными
   deploy:
     desc: Деплой в окружение
     cmds:
-      - task: build
-        vars:
-          ENV: production
-      - ./scripts/deploy.sh {{.ENV}}
+      - npm run build
+      - ./scripts/deploy.sh
 ```
 
 ## Примеры рабочих процессов
@@ -370,11 +365,7 @@ tasks:
 
 ```bash
 # Временно отключить синхронизацию
-razd install --no-sync
-
-# Или через переменную окружения
-export RAZD_NO_SYNC=1
-razd up
+razd up --no-sync
 ```
 
 ### 5. Используйте переменные для гибкости
@@ -409,15 +400,16 @@ source ~/.bashrc  # или ~/.zshrc
 
 ```bash
 # Инициализируйте новый Razdfile.yml
-razd up --init
-
-# Или создайте минимальный вручную
+razd init
 ```
 
 ```yaml
-mise:
-  tools:
-    node: "22"
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure:
+    - "node@22"
 tasks:
   default:
     cmds:
@@ -438,10 +430,10 @@ diff Razdfile.yml mise.toml
 
 ```bash
 # Проверьте доступные задачи
-razd run
+razd list
 
-# Или откройте Razdfile.yml
-cat Razdfile.yml
+# Смотрите все задачи, включая внутренние
+razd list --all
 ```
 
 ## Следующие шаги

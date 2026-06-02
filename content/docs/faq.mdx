@@ -21,7 +21,7 @@ Razd уникален по нескольким причинам:
 
 ### В чем разница между Razdfile.yml, mise.toml и Taskfile.yml?
 
-- **`Razdfile.yml`** — унифицированная конфигурация Razd, объединяющая управление инструментами (mise) и задачи (taskfile) в одном файле
+- **`Razdfile.yml`** — унифицированная конфигурация Razd, объединяющая зависимости (mise/devbox) и задачи (taskfile) в одном файле. Использует формат `dependencies` с полем `using`.
 - **`.mise.toml`** (или `mise.toml`) — конфигурация mise для управления версиями инструментов
 - **`Taskfile.yml`** — конфигурация taskfile для определения задач автоматизации (он создается по вашему желанию, если имеете понимание, как с ним работать)
 
@@ -64,19 +64,28 @@ winget install jdx.mise
 
 ### Можно ли использовать Razd без mise?
 
-В настоящее время **нет**. mise — обязательная зависимость, так как Razd использует его для:
+Razd поддерживает два провайдера: **mise** и **devbox**. По умолчанию используется mise.
 
-- Управления версиями инструментов разработки
-- Обеспечения изоляции проектов
-- Установки более 500 инструментов экосистемы
-
-Однако, если ваш проект не требует специальных инструментов, можете использовать только задачи:
+Если ваш проект не требует установки инструментов, можете использовать только задачи:
 
 ```yaml
+version: "1"
+
 tasks:
   default:
     cmds:
       - echo "Hello from Razd!"
+```
+
+Или использовать devbox вместо mise:
+
+```yaml
+version: "1"
+
+dependencies:
+  using: "devbox"
+  ensure:
+    - "nodejs@22"
 ```
 
 ## Вопросы по использованию
@@ -96,22 +105,25 @@ tasks:
 
 | Команда | Описание | Пример |
 |---------|----------|--------|
-| `razd up [URL]` | Клонировать и настроить проект | `razd up https://github.com/user/repo` |
-| `razd up --init` | Создать Razdfile.yml с автоопределением | `razd up --init` |
-| `razd install` | Установить инструменты из Razdfile.yml | `razd install` |
-| `razd setup` | Установить зависимости проекта | `razd setup` |
-| `razd dev` | Запустить dev сервер | `razd dev` |
-| `razd build` | Собрать проект | `razd build` |
-| `razd run <task>` | Выполнить кастомную задачу | `razd run test` |
+| `razd up` | Установить зависимости и настроить проект | `razd up` |
+| `razd up -r` | Установить и запустить default задачу | `razd up -r` |
+| `razd init` | Создать Razdfile.yml | `razd init` |
+| `razd init --using devbox` | Создать Razdfile с devbox провайдером | `razd init --using devbox` |
+| `razd add <tool@version>` | Добавить зависимость | `razd add node@22` |
+| `razd list` | Показать доступные задачи | `razd list` |
+| `razd list --all` | Показать все задачи включая внутренние | `razd list --all` |
+| `razd list --json` | Список задач в формате JSON | `razd list --json` |
+| `razd run <task>` | Выполнить задачу | `razd run test` |
+| `razd dev` | Запустить dev сервер (задача dev) | `razd dev` |
+| `razd build` | Собрать проект (задача build) | `razd build` |
+| `razd shell` | Запустить оболочку с окружением | `razd shell` |
+| `razd trust` | Доверять проект | `razd trust` |
 | `razd --version` | Показать версию | `razd --version` |
 | `razd --help` | Показать справку | `razd --help` |
 
 ### Как отключить автоматическую синхронизацию?
 
-**Для одной команды:**
-
 ```bash
-razd install --no-sync
 razd up --no-sync
 ```
 
@@ -123,7 +135,8 @@ razd up --no-sync
 
 ```bash
 cd my-project
-razd up --init
+razd init                    # Создать с mise (по умолчанию)
+razd init --using devbox     # Создать с devbox
 ```
 
 ### Какие инструменты поддерживает mise?

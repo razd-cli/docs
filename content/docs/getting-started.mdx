@@ -50,17 +50,21 @@ razd up
 
 ```bash
 cd my-project
-razd up --init
+razd init
 ```
 
 ## Основные команды
 
 ```bash
-razd up              # Настроить проект
-razd install         # Установить инструменты
-razd dev             # Запустить dev-сервер
-razd build           # Собрать проект
+razd up              # Установить зависимости и настроить проект
+razd up -r           # Установить зависимости и запустить default задачу
+razd init            # Создать Razdfile.yml
+razd add node@22     # Добавить зависимость
+razd list            # Показать доступные задачи
 razd run <задача>    # Выполнить задачу
+razd dev             # Запустить dev-сервер (задача dev)
+razd build           # Собрать проект (задача build)
+razd shell           # Запустить оболочку с окружением
 ```
 
 ## Razdfile.yml
@@ -68,10 +72,13 @@ razd run <задача>    # Выполнить задачу
 Пример конфигурации:
 
 ```yaml
-mise:
-  tools:
-    node: "22"
-    python: "3.11"
+version: "1"
+
+dependencies:
+  using: "mise"
+  ensure:
+    - "node@22"
+    - "python@3.11"
 
 tasks:
   default:
