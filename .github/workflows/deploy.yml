@@ -31,7 +31,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install && pnpm approve-builds esbuild sharp
 
       - name: Build Next.js (static export)
         run: pnpm build
