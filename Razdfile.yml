@@ -3,7 +3,7 @@ version: "1"
 dependencies:
   using: "mise"
   ensure:
-    - "node@24"
+    - "node@22"
     - "pnpm@10"
 
 tasks:
