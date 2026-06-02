@@ -1,0 +1,58 @@
+---
+title: Node.js HTTP Server
+description: Простой HTTP сервер на нативном модуле Node.js с HTML страницей.
+icon: nodedotjs
+tags:
+  - node.js
+  - http
+source: https://github.com/razd-cli/razd-nodejs-example
+---
+
+## Обзор
+
+Простой HTTP сервер на нативном модуле Node.js. Показывает базовую настройку проекта с Razd.
+
+## Быстрый старт
+
+```bash
+razd up https://github.com/razd-cli/razd-nodejs-example
+```
+
+## Что происходит при настройке
+
+1. Клонируется репозиторий
+2. Устанавливается Node.js через mise
+3. Запускается `npm install`
+4. Dev сервер запускается автоматически
+
+## Razdfile.yml
+
+```yaml
+mise:
+  tools:
+    node: "22"
+    task: latest
+
+tasks:
+  default:
+    cmds:
+      - task: install
+      - task: dev
+
+  install:
+    cmds:
+      - npm install
+
+  dev:
+    cmds:
+      - npm run dev
+
+  build:
+    cmds:
+      - npm run build
+```
+
+## Ссылки
+
+- [Исходный код](https://github.com/razd-cli/razd-nodejs-example)
+- [Руководство по Node.js](/docs/stack/nodejs)
