@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { DemoVideo } from '@/components/demo-video';
+import { InstallCommand } from '@/components/install-command';
 
 export default function HomePage() {
   return (
@@ -76,17 +77,15 @@ export default function HomePage() {
 
       {/* Quick start */}
       <section className="px-4 pb-20">
-        <div className="max-w-3xl mx-auto rounded-xl border border-fd-border bg-fd-card p-8">
-          <h2 className="text-2xl font-bold mb-4">Быстрый старт</h2>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold mb-2">Быстрый старт</h2>
           <p className="text-fd-muted-foreground mb-6">
-            Установите и запустите проект одной командой:
+            Установите Razd одной командой:
           </p>
-          <div className="rounded-lg bg-fd-secondary p-4 font-mono text-sm overflow-x-auto">
-            <div className="text-fd-muted-foreground mb-2"># Установите Razd через mise</div>
-            <div>mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd</div>
-            <div>mise use -g razd@latest</div>
-            <div className="mt-3 text-fd-muted-foreground mb-2"># Настройте проект одной командой</div>
-            <div className="text-fd-primary font-semibold">razd up https://github.com/razd-cli/razd-nodejs-example</div>
+          <InstallCommand />
+          <div className="mt-4 rounded-lg bg-fd-secondary p-4 font-mono text-sm">
+            <span className="text-fd-muted-foreground select-none mr-2">$</span>
+            <span className="text-fd-primary font-semibold">razd up https://github.com/razd-cli/razd-nodejs-example</span>
           </div>
         </div>
       </section>

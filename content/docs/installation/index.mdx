@@ -3,9 +3,69 @@ title: Установка
 description: Это руководство охватывает несколько способов установки Razd в вашей системе.
 ---
 
-## Предварительные требования
+## Быстрая установка (Рекомендуется)
 
-Перед установкой Razd убедитесь, что установлен **mise** — менеджер инструментов разработки. Подробное руководство: [https://mise.jdx.dev/installing-mise.html](https://mise.jdx.dev/installing-mise.html)
+### Linux / macOS
+
+```bash
+curl -fsSL https://get.razd-cli.com/install.sh | bash
+```
+
+### Windows (PowerShell)
+
+```powershell
+irm https://get.razd-cli.com/install.ps1 | iex
+```
+
+> **Альтернатива:** Если короткий URL недоступен, используйте прямые ссылки GitHub:
+> - Linux/macOS: `curl -fsSL https://raw.githubusercontent.com/razd-cli/installer/main/install.sh | bash`
+> - Windows: `irm https://raw.githubusercontent.com/razd-cli/installer/main/install.ps1 | iex`
+
+### Установка конкретной версии
+
+**Linux / macOS:**
+
+```bash
+# Установить конкретную версию через переменную окружения
+RAZD_VERSION=1.0.0 curl -fsSL https://get.razd-cli.com/install.sh | bash
+
+# Или при запуске напрямую:
+./install.sh --version 1.0.0
+./install.sh --pre-release        # последняя pre-release версия
+```
+
+**Windows (PowerShell):**
+
+```powershell
+# Установить конкретную версию через переменную окружения
+$env:RAZD_VERSION = "1.0.0"; irm https://get.razd-cli.com/install.ps1 | iex
+
+# Или при запуске напрямую:
+.\install.ps1 -Version 1.0.0
+.\install.ps1 -PreRelease
+```
+
+### Пользовательский каталог установки
+
+**Linux / macOS:**
+
+```bash
+RAZD_INSTALL_DIR=/usr/local/bin curl -fsSL https://get.razd-cli.com/install.sh | bash
+# или
+./install.sh --dir /usr/local/bin
+```
+
+**Windows (PowerShell):**
+
+```powershell
+$env:RAZD_INSTALL_DIR = "C:\Tools\razd"; irm https://get.razd-cli.com/install.ps1 | iex
+# или
+.\install.ps1 -InstallDir "C:\Tools\razd"
+```
+
+## Установка через mise
+
+Также можно установить Razd через mise — менеджер инструментов разработки:
 
 ### Установка mise
 
@@ -29,11 +89,7 @@ winget install jdx.mise
 
 > После установки mise перезапустите терминал или выполните `source ~/.bashrc` (Linux) / `source ~/.zshrc` (macOS), чтобы обновить PATH.
 
-## Быстрая установка (Рекомендуется)
-
-### Используя mise
-
-Самый простой способ установить Razd — через mise, который также управляет зависимостями инструмента:
+### Установка Razd через mise
 
 ```bash
 # Установите плагин Razd
@@ -46,7 +102,7 @@ mise use -g razd@latest
 razd --version
 ```
 
-### Установка конкретной версии
+### Установка конкретной версии через mise
 
 ```bash
 # Установите конкретную версию
@@ -67,12 +123,23 @@ razd --version
 
 # Проверьте справку
 razd --help
-
-# Убедитесь, что mise установлен
-mise --version
 ```
 
 ## Обновление Razd
+
+### Обновление через инсталлер
+
+**Linux / macOS:**
+
+```bash
+curl -fsSL https://get.razd-cli.com/install.sh | bash
+```
+
+**Windows (PowerShell):**
+
+```powershell
+irm https://get.razd-cli.com/install.ps1 | iex
+```
 
 ### Обновление через mise
 
@@ -85,6 +152,22 @@ mise use -g razd@0.4.4
 ```
 
 ## Удаление
+
+### Удаление при установке через инсталлер
+
+Удалите бинарный файл:
+
+**Linux / macOS:**
+
+```bash
+rm ~/.local/bin/razd
+```
+
+**Windows:**
+
+```powershell
+Remove-Item "$env:LOCALAPPDATA\razd\razd.exe"
+```
 
 ### Удаление через mise
 

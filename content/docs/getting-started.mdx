@@ -5,7 +5,21 @@ description: Быстрый старт с Razd — установите инст
 
 ## Установка
 
-**1. Установите mise:**
+**1. Установите Razd:**
+
+```bash
+# macOS/Linux
+curl -fsSL https://get.razd-cli.com/install.sh | bash
+
+# Windows (PowerShell)
+irm https://get.razd-cli.com/install.ps1 | iex
+```
+
+> **Альтернатива:** Если короткий URL недоступен, используйте прямые ссылки GitHub:
+> - Linux/macOS: `curl -fsSL https://raw.githubusercontent.com/razd-cli/installer/main/install.sh | bash`
+> - Windows: `irm https://raw.githubusercontent.com/razd-cli/installer/main/install.ps1 | iex`
+
+**2. (Опционально) Установите mise для управления инструментами:**
 
 ```bash
 # macOS/Linux
@@ -16,14 +30,6 @@ winget install jdx.mise
 ```
 
 Подробнее: [https://mise.jdx.dev/installing-mise.html](https://mise.jdx.dev/installing-mise.html)
-
-**2. Установите Razd:**
-
-```bash
-mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd
-mise use -g razd@latest
-razd --version
-```
 
 ## Быстрый старт
 

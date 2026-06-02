@@ -18,20 +18,18 @@ Razd — современный CLI инструмент на Rust, которы
     Автоматическая установка Node.js, Python, Go и других инструментов через mise
   </Card>
   <Card title="Установка" href="/docs/installation" icon="Download">
-    Установите Razd за пару команд через mise
+    Одна команда для установки Razd
   </Card>
 </Cards>
 
 ## Быстрый старт
 
 ```bash
-# Установите mise
-curl https://mise.run | sh  # macOS/Linux
-winget install jdx.mise     # Windows
-
 # Установите Razd
-mise plugin install razd https://github.com/razd-cli/vfox-plugin-razd
-mise use -g razd@latest
+# macOS/Linux:
+curl -fsSL https://get.razd-cli.com/install.sh | bash
+# Windows (PowerShell):
+irm https://get.razd-cli.com/install.ps1 | iex
 
 # Настройте проект одной командой
 razd up https://github.com/razd-cli/razd-nodejs-example
