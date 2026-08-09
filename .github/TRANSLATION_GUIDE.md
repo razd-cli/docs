@@ -149,7 +149,7 @@ Always use the glossary (`.github/TERMINOLOGY.md`) for consistent translations:
 2. Update Russian content
 3. Update English content
 4. Run verification commands
-5. Test locally with `pnpm run docs:dev`
+5. Test locally with `bun run docs:dev`
 6. Create PR with both language updates
 
 ### For Minor Fixes
@@ -164,7 +164,7 @@ Always use the glossary (`.github/TERMINOLOGY.md`) for consistent translations:
 
 ```bash
 # Start dev server
-pnpm run docs:dev
+bun run docs:dev
 
 # Test Russian version
 open http://localhost:5173/docs/

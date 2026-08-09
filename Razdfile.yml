@@ -3,8 +3,7 @@ version: "1"
 dependencies:
   using: "mise"
   ensure:
-    - "node@22"
-    - "pnpm@10"
+    - "bun@1.3"
 
 tasks:
   default:
@@ -14,20 +13,20 @@ tasks:
   install:
     desc: "Install dependencies"
     cmds:
-      - pnpm install
+      - bun install
   dev:
     desc: "Start development server"
     cmds:
-      - pnpm dev
+      - bun run dev
   build:
     desc: "Build for production"
     cmds:
-      - pnpm build
+      - bun run build
   start:
     desc: "Start production server"
     cmds:
-      - pnpm start
+      - bun run start
   typecheck:
     desc: "Run type checking"
     cmds:
-      - pnpm run types:check
+      - bun run types:check
