@@ -4,9 +4,23 @@ import { appName } from './shared';
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: appName,
+      title: (
+        <div className="flex items-center gap-1.5">
+          <img
+            src="/R_logo_gradient.svg"
+            alt={appName}
+            className="h-6 w-6"
+          />
+          <span>{appName}</span>
+        </div>
+      ),
     },
     links: [
+      {
+        text: 'Документация',
+        url: '/docs',
+        active: 'none',
+      },
       {
         text: 'Кейсы',
         url: '/showcases',

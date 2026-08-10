@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { Rocket, Globe, Package } from 'lucide-react';
 import { DemoVideo } from '@/components/demo-video';
 import { InstallCommand } from '@/components/install-command';
 
@@ -9,11 +10,11 @@ export default function HomePage() {
       {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center py-20 px-4">
         <Image
-          src="/logo.png"
+          src="/R_logo_gradient.svg"
           alt="Razd"
           width={128}
           height={128}
-          className="mb-8"
+          className="mb-1"
           priority
         />
         <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-fd-foreground to-fd-muted-foreground bg-clip-text text-transparent">
@@ -44,21 +45,27 @@ export default function HomePage() {
       <section className="px-4 pb-16">
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="rounded-xl border border-fd-border bg-fd-card p-6 text-center">
-            <div className="text-4xl mb-4">🚀</div>
+            <div className="flex justify-center mb-4">
+              <Rocket className="w-8 h-8 text-fd-muted-foreground" strokeWidth={1.5} />
+            </div>
             <h3 className="text-lg font-semibold mb-2">Автоматизация настройки проекта</h3>
             <p className="text-fd-muted-foreground text-sm">
               Одна команда для клонирования, установки инструментов и запуска настройки. Больше никаких многоэтапных инициализаций проектов.
             </p>
           </div>
           <div className="rounded-xl border border-fd-border bg-fd-card p-6 text-center">
-            <div className="text-4xl mb-4">🌍</div>
+            <div className="flex justify-center mb-4">
+              <Globe className="w-8 h-8 text-fd-muted-foreground" strokeWidth={1.5} />
+            </div>
             <h3 className="text-lg font-semibold mb-2">Кроссплатформенность</h3>
             <p className="text-fd-muted-foreground text-sm">
               Работает одинаково на Windows, macOS и Linux без дополнительной настройки.
             </p>
           </div>
           <div className="rounded-xl border border-fd-border bg-fd-card p-6 text-center">
-            <div className="text-4xl mb-4">📦</div>
+            <div className="flex justify-center mb-4">
+              <Package className="w-8 h-8 text-fd-muted-foreground" strokeWidth={1.5} />
+            </div>
             <h3 className="text-lg font-semibold mb-2">Автоматическое управление инструментами</h3>
             <p className="text-fd-muted-foreground text-sm">
               Не нужно вручную устанавливать Node.js, Python, Go и другие инструменты — всё устанавливается автоматически через mise при настройке проекта.
