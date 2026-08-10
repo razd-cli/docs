@@ -1,4 +1,4 @@
 {
   "title": "Кейсы",
-  "pages": ["nodejs", "lua-lux", "luau", "go", "zig-cgo"]
+  "pages": ["nodejs", "ruby", "lua-lux", "luau", "go", "zig-cgo"]
 }

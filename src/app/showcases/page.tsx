@@ -8,6 +8,7 @@ const iconMap: Record<string, { emoji: string; color: string }> = {
   rust: { emoji: '🦀', color: '#CE422B' },
   deno: { emoji: '🦕', color: '#000000' },
   docker: { emoji: '🐳', color: '#2496ED' },
+  ruby: { emoji: '💎', color: '#CC342D' },
   lua: { emoji: '🌙', color: '#2C2D72' },
   luau: { emoji: '🌙', color: '#00A2FF' },
   zig: { emoji: '⚡', color: '#F7A41D' },
