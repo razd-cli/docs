@@ -1,5 +1,5 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { appName, gitConfig } from './shared';
+import { appName } from './shared';
 
 export function baseOptions(): BaseLayoutProps {
   return {
@@ -18,6 +18,6 @@ export function baseOptions(): BaseLayoutProps {
         active: 'none',
       },
     ],
-    githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
+    githubUrl: 'https://github.com/razd-cli/razd',
   };
 }

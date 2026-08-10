@@ -1,0 +1,69 @@
+---
+title: Go
+description: Простой Go проект с цветным выводом в терминале.
+icon: go
+tags:
+  - go
+source: https://github.com/razd-cli/razd-go-example
+---
+
+## Обзор
+
+Простой Go проект, демонстрирующий рабочий процесс Razd: установку зависимостей, запуск и сборку бинарного файла.
+
+## Быстрый старт
+
+```bash
+razd up https://github.com/razd-cli/razd-go-example
+```
+
+## Что происходит при настройке
+
+1. Клонируется репозиторий
+2. Устанавливается Go через mise
+3. Запускается `go mod tidy`
+4. Приложение запускается через `go run main.go`
+
+## Razdfile.yml
+
+```yaml
+version: "1"
+
+dependencies:
+  using: "mise"
+
+  ensure:
+    - "task@latest"
+    - "go@latest"
+
+tasks:
+  default:
+    desc: "Установить зависимости и запустить проект"
+    cmds:
+      - task: install
+      - task: run
+
+  install:
+    desc: "Установить Go зависимости"
+    cmds:
+      - echo "📦 Устанавливаю зависимости..."
+      - go mod tidy
+      - echo "✅ Зависимости установлены"
+
+  dev:
+    desc: "Запустить приложение"
+    cmds:
+      - echo "🚀 Запускаю приложение..."
+      - go run main.go
+
+  build:
+    desc: "Собрать бинарный файл"
+    cmds:
+      - echo "🔨 Собираю проект..."
+      - go build -o bin/app main.go
+      - echo "✅ Бинарник собран в bin/app"
+```
+
+## Ссылки
+
+- [Исходный код](https://github.com/razd-cli/razd-go-example)

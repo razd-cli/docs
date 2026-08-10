@@ -1,0 +1,69 @@
+---
+title: Luau Quote Generator
+description: Генератор случайных цитат на Luau со статической типизацией.
+icon: luau
+tags:
+  - luau
+  - roblox
+source: https://github.com/razd-cli/razd-luau-example
+---
+
+## Обзор
+
+Простая программа на Luau — генератор случайных цитат. Демонстрирует статические типы, проверку типов через `luau-analyze` и запуск через CLI `luau`.
+
+## Быстрый старт
+
+```bash
+razd up https://github.com/razd-cli/razd-luau-example
+```
+
+## Что происходит при настройке
+
+1. Клонируется репозиторий
+2. Устанавливается Luau через mise
+3. Запускается генератор цитат
+
+## Razdfile.yml
+
+```yaml
+version: "1"
+
+dependencies:
+  using: "mise"
+
+  ensure:
+    - "luau@latest"
+
+tasks:
+  default:
+    desc: Set up project
+    cmds:
+      - task: install
+      - task: dev
+      - echo "Project setup completed!"
+  install:
+    desc: Install tools and dependencies
+    cmds:
+      - mise install
+  dev:
+    desc: Run the quote generator
+    cmds:
+      - luau main.luau
+  check:
+    desc: Type-check the Luau source
+    cmds:
+      - luau-analyze main.luau
+  run:
+    desc: Run the quote generator (alias for dev)
+    cmds:
+      - luau main.luau
+  test:
+    desc: Run tests
+    cmds:
+      - echo "No tests configured yet"
+```
+
+## Ссылки
+
+- [Исходный код](https://github.com/razd-cli/razd-luau-example)
