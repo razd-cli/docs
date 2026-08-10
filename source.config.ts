@@ -34,6 +34,7 @@ export const examples = defineCollections({
     source: z.string().optional(),
     tags: z.array(z.string()).optional(),
     icon: z.string().optional(),
+    provider: z.enum(['mise', 'devbox']).optional(),
   }),
 });
 

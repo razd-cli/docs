@@ -1,0 +1,81 @@
+---
+title: PHP Laravel
+description: Полноценное Laravel приложение с аутентификацией и passkeys.
+icon: laravel
+provider: devbox
+tags:
+  - php
+  - laravel
+  - devbox
+source: https://github.com/razd-cli/razd-php-laravel-example
+---
+
+## Обзор
+
+Полноценное Laravel приложение с аутентификацией (Fortify), Livewire и поддержкой passkeys. Показывает настройку PHP-проекта с Razd через **Devbox**.
+
+## Быстрый старт
+
+```bash
+razd up https://github.com/razd-cli/razd-php-laravel-example
+```
+
+## Что происходит при настройке
+
+1. Клонируется репозиторий
+2. Устанавливаются PHP 8.4 и Node.js через Devbox
+3. Запускается `composer install` и `npm install`
+4. Проект готов к запуску через `razd run dev`
+
+## Razdfile.yml
+
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/razd-cli/razd/main/.schema/razdfile.schema.json
+version: "1"
+# Environment provisioning via devbox.
+dependencies:
+  using: "devbox"
+  ensure:
+    - "php@8.4.15"
+    - "nodejs@24"
+    - "php84Extensions.mbstring"
+    - "php84Extensions.curl"
+    - "php84Extensions.tokenizer"
+    - "php84Extensions.xml"
+    - "php84Extensions.filter"
+    - "php84Extensions.xdebug"
+    - "php84Extensions.intl"
+    - "php84Extensions.pdo"
+    - "php84Extensions.dom"
+    - "php84Extensions.fileinfo"
+    - "php84Extensions.ffi"
+    - "php84Packages.composer"
+    - "php84Extensions.session"
+# Tasks run inside `devbox run --`, so php / composer / node are on PATH.
+tasks:
+  default:
+    deps: [install]
+    cmds:
+      - echo "Project ready. Run 'razd run dev' to start the server."
+  install:
+    cmds:
+      - composer install --no-interaction
+      - npm install
+  build: npm run build
+  dev: php artisan serve --host=0.0.0.0 --port=8000
+  migrate: php artisan migrate --force
+  key: php artisan key:generate
+  check:
+    desc: Verify PHP tooling is available
+    cmds:
+      - php --version
+      - php artisan --version
+      - composer --version
+      - node --version
+  lint: composer lint
+  test: composer test
+```
+
+## Ссылки
+
+- [Исходный код](https://github.com/razd-cli/razd-php-laravel-example)
