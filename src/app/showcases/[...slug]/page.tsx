@@ -48,7 +48,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         href="/showcases"
         className="text-sm text-fd-muted-foreground hover:text-fd-foreground mb-8 inline-block"
       >
-        ← Showcases
+        ← Кейсы
       </Link>
       <article>
         <div className="flex items-center gap-4 mb-4">

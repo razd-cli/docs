@@ -8,7 +8,7 @@ export function baseOptions(): BaseLayoutProps {
     },
     links: [
       {
-        text: 'Showcases',
+        text: 'Кейсы',
         url: '/showcases',
         active: 'none',
       },
