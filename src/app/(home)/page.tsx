@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Rocket, Globe, Package } from 'lucide-react';
+import { showcasesSource } from '@/lib/source';
+import { ShowcaseCard } from '@/components/showcase-card';
 import { DemoVideo } from '@/components/demo-video';
 import { InstallCommand } from '@/components/install-command';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const showcases = showcasesSource
+    .getPages()
+    .filter((p) => p.slugs.length > 0 && !p.data.full);
   return (
     <div className="flex flex-col flex-1">
       {/* Hero */}
@@ -79,6 +84,29 @@ export default function HomePage() {
         <h2 className="text-3xl font-bold text-center mb-8">Демонстрация</h2>
         <div className="max-w-3xl mx-auto">
           <DemoVideo />
+        </div>
+      </section>
+
+      {/* Showcases */}
+      <section className="px-4 pb-20">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-2">Кейсы</h2>
+          <p className="text-fd-muted-foreground text-center mb-8">
+            Проекты, использующие Razd. Клонируйте и запускайте одной командой.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {showcases.map((page) => (
+              <ShowcaseCard key={page.url} page={page} />
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/showcases"
+              className="text-sm font-medium text-fd-primary hover:underline"
+            >
+              Все кейсы →
+            </Link>
+          </div>
         </div>
       </section>
 
