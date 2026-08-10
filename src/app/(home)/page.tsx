@@ -73,7 +73,7 @@ export default async function HomePage() {
             </div>
             <h3 className="text-lg font-semibold mb-2">Автоматическое управление инструментами</h3>
             <p className="text-fd-muted-foreground text-sm">
-              Не нужно вручную устанавливать Node.js, Python, Go и другие инструменты — всё устанавливается автоматически через mise при настройке проекта.
+              Не нужно вручную устанавливать Node.js, Python, Go и другие инструменты — всё устанавливается автоматически через mise или devbox при настройке проекта.
             </p>
           </div>
         </div>
