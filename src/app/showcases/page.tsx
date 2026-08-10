@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { showcasesSource } from '@/lib/source';
+import { ProviderBadge } from '@/components/provider';
 
 const iconMap: Record<string, { emoji: string; color: string }> = {
   nodedotjs: { emoji: '🟢', color: '#339933' },
@@ -12,6 +13,7 @@ const iconMap: Record<string, { emoji: string; color: string }> = {
   lua: { emoji: '🌙', color: '#2C2D72' },
   luau: { emoji: '🌙', color: '#00A2FF' },
   zig: { emoji: '⚡', color: '#F7A41D' },
+  laravel: { emoji: '🎯', color: '#FF2D20' },
 };
 
 function ShowcaseIcon({ name }: { name: string }) {
@@ -50,6 +52,7 @@ export default async function ShowcasesPage() {
           const tags: string[] = data.tags || [];
           const source = data.source;
           const icon = data.icon || '';
+          const provider = data.provider as 'mise' | 'devbox' | undefined;
 
           return (
             <div
@@ -68,6 +71,7 @@ export default async function ShowcasesPage() {
                 </p>
                 {tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-4">
+                    {provider && <ProviderBadge provider={provider} />}
                     {tags.map((tag) => (
                       <span
                         key={tag}

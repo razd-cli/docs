@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { ProviderBadge, ProviderNotice } from '@/components/provider';
 
 const iconMap: Record<string, { emoji: string; color: string }> = {
   nodedotjs: { emoji: '🟢', color: '#339933' },
@@ -15,6 +16,7 @@ const iconMap: Record<string, { emoji: string; color: string }> = {
   lua: { emoji: '🌙', color: '#2C2D72' },
   luau: { emoji: '🌙', color: '#00A2FF' },
   zig: { emoji: '⚡', color: '#F7A41D' },
+  laravel: { emoji: '🎯', color: '#FF2D20' },
 };
 
 function ShowcaseIcon({ name }: { name: string }) {
@@ -45,6 +47,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
   const data = page.data as any;
   const icon = data.icon || '';
   const tags: string[] = data.tags || [];
+  const provider = data.provider as 'mise' | 'devbox' | undefined;
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
@@ -64,6 +67,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         )}
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-2 mb-6">
+            {provider && <ProviderBadge provider={provider} />}
             {tags.map((tag) => (
               <span
                 key={tag}
@@ -74,6 +78,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
             ))}
           </div>
         )}
+        {provider && <ProviderNotice provider={provider} />}
         {data.source && (
           <a
             href={data.source}
