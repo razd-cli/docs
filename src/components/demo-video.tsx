@@ -7,7 +7,7 @@ export function DemoVideo() {
       className="w-full rounded-xl border border-fd-border max-h-[500px]"
       suppressHydrationWarning
     >
-      <source src="/2025-11-03 08-58-58.mp4" type="video/mp4" />
+      <source src="/Export-1786365905329.mp4" type="video/mp4" />
       Ваш браузер не поддерживает видео.
     </video>
   );

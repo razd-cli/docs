@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { formatDate } from '@/lib/date';
 
 export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
   const params = await props.params;
@@ -29,7 +30,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
           <div className="text-sm text-fd-muted-foreground mb-8 border-b pb-6">
             {data.author && <span>{data.author}</span>}
             {data.author && data.date && <span> · </span>}
-            {data.date && <span>{data.date}</span>}
+            {data.date && <span>{formatDate(data.date)}</span>}
           </div>
         )}
         <div className="prose max-w-none">

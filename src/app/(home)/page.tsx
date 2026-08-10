@@ -1,13 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Rocket, Globe, Package } from 'lucide-react';
-import { showcasesSource } from '@/lib/source';
+import { showcasesSource, blogSource } from '@/lib/source';
+import { formatDate } from '@/lib/date';
 import { ShowcaseCard } from '@/components/showcase-card';
 import { DemoVideo } from '@/components/demo-video';
 import { InstallCommand } from '@/components/install-command';
 
 export default async function HomePage() {
   const showcases = showcasesSource
+    .getPages()
+    .filter((p) => p.slugs.length > 0 && !p.data.full);
+  const posts = blogSource
     .getPages()
     .filter((p) => p.slugs.length > 0 && !p.data.full);
   return (
@@ -121,6 +125,52 @@ export default async function HomePage() {
           <div className="mt-4 rounded-lg bg-fd-secondary p-4 font-mono text-sm">
             <span className="text-fd-muted-foreground select-none mr-2">$</span>
             <span className="text-fd-primary font-semibold">razd up https://github.com/razd-cli/razd-nodejs-example</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Blog */}
+      <section className="px-4 pb-20">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-2">Блог</h2>
+          <p className="text-fd-muted-foreground text-center mb-8">
+            Новости, обновления и руководства по Razd.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {posts.map((page) => {
+              const data = page.data;
+              const date = data.date;
+              const author = data.author;
+              return (
+                <Link
+                  key={page.url}
+                  href={page.url}
+                  className="group block rounded-xl border border-fd-border bg-fd-card p-6 transition-all duration-300 hover:border-fd-primary/40 hover:shadow-lg h-full"
+                >
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-fd-primary transition-colors">
+                    {data.title}
+                  </h3>
+                  <p className="text-fd-muted-foreground text-sm mb-4 line-clamp-3">
+                    {data.description}
+                  </p>
+                  {(author || date) && (
+                    <div className="text-xs text-fd-muted-foreground mt-auto pt-3 border-t border-fd-border">
+                      {author && <span>{author}</span>}
+                      {author && date && <span> · </span>}
+                      {date && <span>{formatDate(date)}</span>}
+                    </div>
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+          <div className="text-center mt-8">
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-fd-primary hover:underline"
+            >
+              Все записи →
+            </Link>
           </div>
         </div>
       </section>

@@ -1,4 +1,4 @@
 {
   "title": "Блог",
-  "pages": ["index", "welcome"]
+  "pages": ["index", "welcome", "v1-release"]
 }

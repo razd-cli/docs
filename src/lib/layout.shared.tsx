@@ -12,6 +12,9 @@ export function baseOptions(): BaseLayoutProps {
             className="h-6 w-6"
           />
           <span>{appName}</span>
+          <span className="inline-flex items-center rounded-full border border-fd-border bg-fd-secondary px-2 py-0.5 text-xs font-medium text-fd-muted-foreground">
+            v1.x
+          </span>
         </div>
       ),
     },
