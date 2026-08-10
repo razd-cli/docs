@@ -1,0 +1,121 @@
+---
+title: Zig + CGO
+description: Кросс-компиляция Go приложения с CGO через Zig и GoReleaser.
+icon: zig
+tags:
+  - zig
+  - go
+  - cgo
+source: https://github.com/razd-cli/razd-example-zig-cgo
+---
+
+## Обзор
+
+Пример кросс-компиляции Go приложения с CGO для основных платформ с помощью Zig и GoReleaser. Zig выступает как полноценный C/C++ кросс-компилятор на базе LLVM.
+
+## Быстрый старт
+
+```bash
+razd up https://github.com/razd-cli/razd-example-zig-cgo
+```
+
+## Что происходит при настройке
+
+1. Клонируется репозиторий
+2. Устанавливаются Go и Zig через mise
+3. Проект собирается с CGO через `zig cc`
+
+## Razdfile.yml
+
+```yaml
+version: "1"
+
+dependencies:
+  using: "mise"
+
+  ensure:
+    - "task@latest"
+    - "go@1.23"
+    - "zig@latest"
+
+tasks:
+  default:
+    desc: "Установка инструментов и сборка проекта"
+    cmds:
+      - "echo 🚀 Настройка проекта..."
+      - "razd install"
+      - "razd build"
+
+  install:
+    desc: "Установить инструменты через mise"
+    cmds:
+      - "echo 📦 Установка инструментов..."
+      - "mise install"
+      - "echo ✅ Инструменты установлены!"
+
+  dev:
+    desc: "Запустить приложение в режиме разработки"
+    env:
+      CGO_ENABLED: "1"
+      CC: "zig cc"
+    cmds:
+      - "echo 🚀 Запуск приложения..."
+      - "go run main.go"
+
+  build:
+    desc: "Собрать проект с CGO"
+    env:
+      CGO_ENABLED: "1"
+      CC: "zig cc"
+    cmds:
+      - "echo 🔨 Сборка проекта..."
+      - "go build -o bin/app.exe main.go"
+      - "echo ✅ Сборка завершена!"
+
+  build-zig:
+    desc: "Собрать с использованием Zig как C компилятора"
+    env:
+      CC: "zig cc"
+      CXX: "zig c++"
+      CGO_ENABLED: "1"
+    cmds:
+      - "echo 🔨 Сборка с Zig компилятором..."
+      - "go build -o bin/app-zig main.go"
+      - "echo ✅ Сборка завершена!"
+
+  build-cross-linux:
+    desc: "Кросс-компиляция для Linux с Zig"
+    env:
+      CC: "zig cc -target x86_64-linux-gnu"
+      CXX: "zig c++ -target x86_64-linux-gnu"
+      CGO_ENABLED: "1"
+      GOOS: "linux"
+      GOARCH: "amd64"
+    cmds:
+      - "echo 🔨 Кросс-компиляция для Linux..."
+      - "go build -o bin/app-linux main.go"
+      - "echo ✅ Бинарник для Linux создан!"
+
+  clean:
+    desc: "Очистить артефакты сборки"
+    cmds:
+      - "echo 🧹 Очистка..."
+      - "rm -rf bin/"
+      - "echo ✅ Очистка завершена!"
+
+  test:
+    desc: "Запустить тесты"
+    cmds:
+      - "echo 🧪 Запуск тестов..."
+      - "go test ./..."
+
+  fmt:
+    desc: "Форматировать код"
+    cmds:
+      - "echo ✨ Форматирование кода..."
+      - "go fmt ./..."
+```
+
+## Ссылки
+
+- [Исходный код](https://github.com/razd-cli/razd-example-zig-cgo)

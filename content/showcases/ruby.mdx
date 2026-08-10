@@ -1,0 +1,80 @@
+---
+title: Ruby Rack
+description: Простой Ruby Rack приложение с сервером на rackup.
+icon: ruby
+tags:
+  - ruby
+  - rack
+source: https://github.com/razd-cli/razd-ruby-example
+---
+
+## Обзор
+
+Простой пример Ruby Rack приложения. Показывает базовую настройку проекта с Razd: установку Ruby через mise, установку gems и запуск Rack сервера.
+
+## Быстрый старт
+
+```bash
+razd up https://github.com/razd-cli/razd-ruby-example
+```
+
+Сервер запустится на http://localhost:9292
+
+## Что происходит при настройке
+
+1. Клонируется репозиторий
+2. Устанавливается Ruby через mise
+3. Запускается `bundle install`
+4. Rack сервер запускается автоматически
+
+## Razdfile.yml
+
+```yaml
+version: "1"
+
+dependencies:
+  using: "mise"
+
+  ensure:
+    - "task@latest"
+    - "ubi:spinel-coop/rv@latest"
+
+tasks:
+  default:
+    desc: "Set up project and start development"
+    cmds:
+      - echo "🚀 Setting up Ruby Rack project..."
+      - task: install
+      - task: dev
+
+  install:
+    desc: "Install Ruby gems and development tools"
+    cmds:
+      - echo "📦 Installing mise tools..."
+      - mise install
+      - echo "💎 Installing Ruby gems..."
+      - bundle install
+
+  dev:
+    desc: "Start development server (auto-stops after 3s)"
+    cmds:
+      - echo "🚀 Starting Rack development server..."
+      - timeout 3 bundle exec rackup app.ru -p 9292; echo "✅ Server stopped after 3s"
+
+  build:
+    desc: "Verify project setup"
+    cmds:
+      - echo "🔨 Verifying Ruby project..."
+      - bundle check
+      - echo "✅ Project is ready"
+
+  clean:
+    desc: "Clean dependencies"
+    cmds:
+      - echo "🧹 Cleaning..."
+      - rm -f gems.locked
+```
+
+## Ссылки
+
+- [Исходный код](https://github.com/razd-cli/razd-ruby-example)

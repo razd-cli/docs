@@ -1,0 +1,66 @@
+---
+title: Lua + Lux
+description: CLI приложение на Lua с пакетным менеджером Lux.
+icon: lua
+tags:
+  - lua
+  - lux
+source: https://github.com/razd-cli/razd-lua-lux-example
+---
+
+## Обзор
+
+CLI приложение на Lua, проверяющее, содержит ли строка слово "hello". Показывает настройку Lua 5.4 и пакетного менеджера Lux через mise.
+
+## Быстрый старт
+
+```bash
+razd up https://github.com/razd-cli/razd-lua-lux-example
+```
+
+## Что происходит при настройке
+
+1. Клонируется репозиторий
+2. Устанавливаются Lua 5.4 и Lux через mise
+3. Проект собирается через `lx build`
+4. Приложение запускается с примером ввода
+
+## Razdfile.yml
+
+```yaml
+version: "1"
+
+dependencies:
+  using: "mise"
+
+  ensure:
+    - "task@latest"
+    - "lua@5.4"
+    - "vfox:dealenx/vfox-plugin-lux@latest"
+
+tasks:
+  default:
+    desc: "Set up project and start development"
+    cmds:
+      - echo "🚀 Setting up Lua/Lux project..."
+      - task: install
+      - task: dev
+
+  install:
+    desc: "Install development tools via mise and build project"
+    cmds:
+      - echo "📦 Installing tools..."
+      - mise install
+      - echo "📦 Building project and installing dependencies..."
+      - mise exec -- lx build
+
+  dev:
+    desc: "Run the Lua application with sample input"
+    cmds:
+      - echo "🚀 Running application..."
+      - mise exec -- lx run -- "hello world"
+```
+
+## Ссылки
+
+- [Исходный код](https://github.com/razd-cli/razd-lua-lux-example)
