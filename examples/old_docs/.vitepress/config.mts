@@ -132,7 +132,7 @@ export default defineConfig({
 
   head: [
     // Favicon configurations
-    ["link", { rel: "icon", href: "https://razd-cli.com/favicon.ico" }],
+    ["link", { rel: "icon", href: "https://razd.dealenx.ru/favicon.ico" }],
     [
       "link",
       {
@@ -161,13 +161,13 @@ export default defineConfig({
 
     // Open Graph Tags
     ["meta", { property: "og:type", content: "website" }],
-    ["meta", { property: "og:url", content: "https://razd-cli.com/" }],
+    ["meta", { property: "og:url", content: "https://razd.dealenx.ru/" }],
     ["meta", { property: "og:site_name", content: "Razd" }],
     [
       "meta",
       {
         property: "og:image",
-        content: "https://razd-cli.com/logo.png",
+        content: "https://razd.dealenx.ru/logo.png",
       },
     ],
     ["meta", { property: "og:image:width", content: "1200" }],
@@ -183,7 +183,7 @@ export default defineConfig({
       "meta",
       {
         name: "twitter:image",
-        content: "https://razd-cli.com/logo.png",
+        content: "https://razd.dealenx.ru/logo.png",
       },
     ],
     [
@@ -273,12 +273,12 @@ export default defineConfig({
 
   // Generate sitemap for better SEO
   sitemap: {
-    hostname: "https://razd-cli.com/",
+    hostname: "https://razd.dealenx.ru/",
   },
 
   // Transform page data to add canonical URLs and dynamic meta tags
   transformPageData(pageData) {
-    const canonicalUrl = `https://razd-cli.com/${pageData.relativePath}`
+    const canonicalUrl = `https://razd.dealenx.ru/${pageData.relativePath}`
       .replace(/index\.md$/, "")
       .replace(/\.md$/, ".html");
 

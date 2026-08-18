@@ -8,13 +8,13 @@ const platforms = [
     id: "linux",
     label: "Linux / macOS",
     icon: "🐧",
-    command: "curl -fsSL https://get.razd-cli.com/install.sh | bash",
+    command: "curl -fsSL https://get.razd.dealenx.ru/install.sh | bash",
   },
   {
     id: "windows",
     label: "Windows (PowerShell)",
     icon: "🪟",
-    command: "irm https://get.razd-cli.com/install.ps1 | iex",
+    command: "irm https://get.razd.dealenx.ru/install.ps1 | iex",
   },
 ];
 
